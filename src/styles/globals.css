@@ -1,26 +1,209 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ==========================================================================
+   UHY Egypt Design Tokens
+   Edit colors, spacing, and typography here — they flow into Tailwind utilities.
+   ========================================================================== */
+
+@theme {
+  /* Brand colors */
+  --color-primary: #005232;
+  --color-primary-container: #006d44;
+  --color-primary-fixed: #9cf5c1;
+  --color-primary-fixed-dim: #80d8a6;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #93ecb8;
+  --color-on-primary-fixed: #002111;
+  --color-on-primary-fixed-variant: #005232;
+  --color-inverse-primary: #80d8a6;
+
+  --color-secondary: #006e1c;
+  --color-secondary-container: #91f78e;
+  --color-secondary-fixed: #94f990;
+  --color-secondary-fixed-dim: #78dc77;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #00731e;
+  --color-on-secondary-fixed: #002204;
+  --color-on-secondary-fixed-variant: #005313;
+
+  --color-tertiary: #004f54;
+  --color-tertiary-container: #00696f;
+  --color-tertiary-fixed: #77f5ff;
+  --color-tertiary-fixed-dim: #54d8e2;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #6aebf5;
+  --color-on-tertiary-fixed: #002022;
+  --color-on-tertiary-fixed-variant: #004f54;
+
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+
+  --color-background: #f7f9fb;
+  --color-surface: #f7f9fb;
+  --color-surface-white: #ffffff;
+  --color-surface-bright: #f7f9fb;
+  --color-surface-dim: #d8dadc;
+  --color-surface-variant: #e0e3e5;
+  --color-surface-tint: #006d44;
+  --color-surface-container: #eceef0;
+  --color-surface-container-low: #f2f4f6;
+  --color-surface-container-high: #e6e8ea;
+  --color-surface-container-highest: #e0e3e5;
+  --color-surface-container-lowest: #ffffff;
+
+  --color-on-background: #191c1e;
+  --color-on-surface: #191c1e;
+  --color-on-surface-variant: #3f4942;
+  --color-inverse-surface: #2d3133;
+  --color-inverse-on-surface: #eff1f3;
+
+  --color-outline: #6f7a71;
+  --color-outline-variant: #bec9bf;
+
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+
+  /* Official brand gradients (Goal / Vision / Mission cards) */
+  --color-brand-gradient-dark-from: #0b573a;
+  --color-brand-gradient-dark-to: #1e7b51;
+  --color-brand-gradient-bright-from: #5cb23e;
+  --color-brand-gradient-bright-to: #51a13e;
+  --color-brand-gradient-teal-from: #009ca4;
+  --color-brand-gradient-teal-to: #23b4ba;
+
+  /* Layout spacing — used by px-margin-desktop, py-section-gap, etc. */
+  --spacing-margin-desktop: 64px;
+  --spacing-margin-mobile: 16px;
+  --spacing-gutter: 24px;
+  --spacing-section-gap: 80px;
+  --spacing-base: 8px;
+
+  /* Typography families */
+  --font-display-hero: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display-hero-mobile: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-headline-lg: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-headline-md: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-body-lg: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-body-md: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-label-sm: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Typography sizes */
+  --text-display-hero: 48px;
+  --text-display-hero--line-height: 1.1;
+  --text-display-hero--letter-spacing: -0.02em;
+  --text-display-hero--font-weight: 700;
+
+  --text-display-hero-mobile: 36px;
+  --text-display-hero-mobile--line-height: 1.2;
+  --text-display-hero-mobile--font-weight: 700;
+
+  --text-headline-lg: 32px;
+  --text-headline-lg--line-height: 1.25;
+  --text-headline-lg--font-weight: 600;
+
+  --text-headline-md: 24px;
+  --text-headline-md--line-height: 1.3;
+  --text-headline-md--font-weight: 600;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.6;
+  --text-body-lg--font-weight: 400;
+
+  --text-body-md: 16px;
+  --text-body-md--line-height: 1.5;
+  --text-body-md--font-weight: 400;
+
+  --text-label-sm: 14px;
+  --text-label-sm--line-height: 1.2;
+  --text-label-sm--letter-spacing: 0.05em;
+  --text-label-sm--font-weight: 600;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ==========================================================================
+   Base styles
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+  --site-header-height: 6.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (min-width: 768px) {
+  html {
+    --site-header-height: 7.25rem;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: var(--font-body-md);
+  overflow-x: hidden;
+}
+
+/* Switch to Cairo when the page is in Arabic (dir="rtl") */
+html[dir="rtl"] body {
+  font-family: var(--font-cairo), var(--font-body-md);
+}
+
+/* ==========================================================================
+   Custom decorative utilities (used across hero, CTA, footer)
+   ========================================================================== */
+
+.hero-gradient {
+  background: linear-gradient(
+    to right,
+    rgba(0, 82, 50, 0.85) 0%,
+    rgba(0, 82, 50, 0.4) 50%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+}
+
+.signature-lines {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 8px,
+    currentColor 8px,
+    currentColor 9px
+  );
+}
+
+.brand-gradient-dark {
+  background: linear-gradient(to bottom, #0b573a, #1e7b51);
+}
+
+.brand-gradient-bright {
+  background: linear-gradient(to bottom, #5cb23e, #51a13e);
+}
+
+.brand-gradient-teal {
+  background: linear-gradient(to bottom, #009ca4, #23b4ba);
+}
+
+/* Footer diagonal brand gradient (dark green → bright lime) */
+.footer-gradient {
+  background: linear-gradient(155deg, #063a20 0%, #0a5730 42%, #22853a 78%, #4fb23c 100%);
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+/* Material Symbols — ensure icons render at the correct weight */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
