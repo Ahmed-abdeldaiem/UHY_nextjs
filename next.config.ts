@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import { navServices } from "./src/data/home";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
@@ -14,12 +13,11 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  async redirects() {
-    return navServices.map((service) => ({
-      source: `/services/${service.slug}`,
-      destination: "/services",
-      permanent: false,
-    }));
+  async rewrites() {
+    return [
+      { source: "/sitemap.xml", destination: "/api/sitemap" },
+      { source: "/robots.txt", destination: "/api/robots" },
+    ];
   },
 };
 

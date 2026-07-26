@@ -8,6 +8,10 @@ export default function Document() {
   return (
     <Html lang="en" className="scroll-smooth">
       <Head>
+        <meta name="theme-color" content="#3D1A5C" />
+        <link rel="icon" href="/logo-icon.png" type="image/png" sizes="any" />
+        <link rel="apple-touch-icon" href="/logo-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=block"
           rel="stylesheet"

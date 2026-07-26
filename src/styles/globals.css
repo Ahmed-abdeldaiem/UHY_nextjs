@@ -1,79 +1,82 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   UHY Egypt Design Tokens
-   Edit colors, spacing, and typography here — they flow into Tailwind utilities.
+   BOKS International — Design Tokens
+   Primary: Secondary Purple #592194 | Tertiary Purple #7D29B5 | Orange #FF9100
+   Edit colors here — they flow into Tailwind utilities across the site.
    ========================================================================== */
 
 @theme {
-  /* Brand colors */
-  --color-primary: #005232;
-  --color-primary-container: #006d44;
-  --color-primary-fixed: #9cf5c1;
-  --color-primary-fixed-dim: #80d8a6;
+  /* Primary — Secondary Purple */
+  --color-primary: #592194;
+  --color-primary-container: #412a61;
+  --color-primary-fixed: #7d29b5;
+  --color-primary-fixed-dim: #9b5fd4;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #93ecb8;
-  --color-on-primary-fixed: #002111;
-  --color-on-primary-fixed-variant: #005232;
-  --color-inverse-primary: #80d8a6;
+  --color-on-primary-container: #e8d4f8;
+  --color-on-primary-fixed: #2a1040;
+  --color-on-primary-fixed-variant: #592194;
+  --color-inverse-primary: #d4b8f0;
 
-  --color-secondary: #006e1c;
-  --color-secondary-container: #91f78e;
-  --color-secondary-fixed: #94f990;
-  --color-secondary-fixed-dim: #78dc77;
+  /* Secondary — Orange accent */
+  --color-secondary: #ff9100;
+  --color-secondary-container: #ffe8cc;
+  --color-secondary-fixed: #ff9100;
+  --color-secondary-fixed-dim: #ffb347;
   --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #00731e;
-  --color-on-secondary-fixed: #002204;
-  --color-on-secondary-fixed-variant: #005313;
+  --color-on-secondary-container: #7a4500;
+  --color-on-secondary-fixed: #ffffff;
+  --color-on-secondary-fixed-variant: #5c3300;
 
-  --color-tertiary: #004f54;
-  --color-tertiary-container: #00696f;
-  --color-tertiary-fixed: #77f5ff;
-  --color-tertiary-fixed-dim: #54d8e2;
+  /* Tertiary — Tertiary Purple */
+  --color-tertiary: #7d29b5;
+  --color-tertiary-container: #592194;
+  --color-tertiary-fixed: #b87fe0;
+  --color-tertiary-fixed-dim: #9b5fd4;
   --color-on-tertiary: #ffffff;
-  --color-on-tertiary-container: #6aebf5;
-  --color-on-tertiary-fixed: #002022;
-  --color-on-tertiary-fixed-variant: #004f54;
+  --color-on-tertiary-container: #e8d4f8;
+  --color-on-tertiary-fixed: #2a1040;
+  --color-on-tertiary-fixed-variant: #592194;
 
   --color-error: #ba1a1a;
   --color-error-container: #ffdad6;
   --color-on-error: #ffffff;
   --color-on-error-container: #93000a;
 
-  --color-background: #f7f9fb;
-  --color-surface: #f7f9fb;
+  --color-background: #f8f6fa;
+  --color-surface: #f8f6fa;
   --color-surface-white: #ffffff;
-  --color-surface-bright: #f7f9fb;
-  --color-surface-dim: #d8dadc;
-  --color-surface-variant: #e0e3e5;
-  --color-surface-tint: #006d44;
-  --color-surface-container: #eceef0;
-  --color-surface-container-low: #f2f4f6;
-  --color-surface-container-high: #e6e8ea;
-  --color-surface-container-highest: #e0e3e5;
+  --color-surface-bright: #faf8fc;
+  --color-surface-dim: #ddd8e4;
+  --color-surface-variant: #e8e2ec;
+  --color-surface-tint: #592194;
+  --color-surface-container: #f0ecf4;
+  --color-surface-container-low: #f5f2f8;
+  --color-surface-container-high: #ebe6f0;
+  --color-surface-container-highest: #e4dde8;
   --color-surface-container-lowest: #ffffff;
 
-  --color-on-background: #191c1e;
-  --color-on-surface: #191c1e;
-  --color-on-surface-variant: #3f4942;
-  --color-inverse-surface: #2d3133;
-  --color-inverse-on-surface: #eff1f3;
+  --color-on-background: #1a1224;
+  --color-on-surface: #1a1224;
+  --color-on-surface-variant: #4a3f56;
+  --color-inverse-surface: #2a1040;
+  --color-inverse-on-surface: #f5f0fa;
 
-  --color-outline: #6f7a71;
-  --color-outline-variant: #bec9bf;
+  --color-outline: #7a6d88;
+  --color-outline-variant: #cfc6d8;
 
-  --color-text-primary: #0f172a;
-  --color-text-secondary: #475569;
+  --color-text-primary: #1a1224;
+  --color-text-secondary: #5c5068;
 
-  /* Official brand gradients (Goal / Vision / Mission cards) */
-  --color-brand-gradient-dark-from: #0b573a;
-  --color-brand-gradient-dark-to: #1e7b51;
-  --color-brand-gradient-bright-from: #5cb23e;
-  --color-brand-gradient-bright-to: #51a13e;
-  --color-brand-gradient-teal-from: #009ca4;
-  --color-brand-gradient-teal-to: #23b4ba;
+  /* Brand gradients — Goal / Vision / Mission cards */
+  --color-brand-gradient-dark-from: #412a61;
+  --color-brand-gradient-dark-to: #592194;
+  --color-brand-gradient-bright-from: #592194;
+  --color-brand-gradient-bright-to: #7d29b5;
+  --color-brand-gradient-accent-from: #e07800;
+  --color-brand-gradient-accent-to: #ff9100;
 
-  /* Layout spacing — used by px-margin-desktop, py-section-gap, etc. */
+  /* Layout spacing */
   --spacing-margin-desktop: 64px;
   --spacing-margin-mobile: 16px;
   --spacing-gutter: 24px;
@@ -143,21 +146,20 @@ body {
   overflow-x: hidden;
 }
 
-/* Switch to Cairo when the page is in Arabic (dir="rtl") */
 html[dir="rtl"] body {
   font-family: var(--font-cairo), var(--font-body-md);
 }
 
 /* ==========================================================================
-   Custom decorative utilities (used across hero, CTA, footer)
+   Custom decorative utilities
    ========================================================================== */
 
 .hero-gradient {
   background: linear-gradient(
     to right,
-    rgba(0, 82, 50, 0.85) 0%,
-    rgba(0, 82, 50, 0.4) 50%,
-    rgba(0, 0, 0, 0.2) 100%
+    rgba(89, 33, 148, 0.92) 0%,
+    rgba(89, 33, 148, 0.55) 45%,
+    rgba(42, 16, 64, 0.35) 100%
   );
 }
 
@@ -172,20 +174,38 @@ html[dir="rtl"] body {
 }
 
 .brand-gradient-dark {
-  background: linear-gradient(to bottom, #0b573a, #1e7b51);
+  background: linear-gradient(
+    to bottom,
+    var(--color-brand-gradient-dark-from),
+    var(--color-brand-gradient-dark-to)
+  );
 }
 
 .brand-gradient-bright {
-  background: linear-gradient(to bottom, #5cb23e, #51a13e);
+  background: linear-gradient(
+    to bottom,
+    var(--color-brand-gradient-bright-from),
+    var(--color-brand-gradient-bright-to)
+  );
 }
 
-.brand-gradient-teal {
-  background: linear-gradient(to bottom, #009ca4, #23b4ba);
+.brand-gradient-accent {
+  background: linear-gradient(
+    to bottom,
+    var(--color-brand-gradient-accent-from),
+    var(--color-brand-gradient-accent-to)
+  );
 }
 
-/* Footer diagonal brand gradient (dark green → bright lime) */
+/* Footer — deep purple → tertiary purple (BOKS global style) */
 .footer-gradient {
-  background: linear-gradient(155deg, #063a20 0%, #0a5730 42%, #22853a 78%, #4fb23c 100%);
+  background: linear-gradient(
+    155deg,
+    #2a1040 0%,
+    #412a61 28%,
+    #592194 58%,
+    #7d29b5 100%
+  );
 }
 
 @keyframes fade-in-up {
@@ -203,7 +223,6 @@ html[dir="rtl"] body {
   animation: fade-in-up 0.8s ease-out forwards;
 }
 
-/* Material Symbols — ensure icons render at the correct weight */
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }

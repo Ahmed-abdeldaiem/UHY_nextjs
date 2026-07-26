@@ -1,6 +1,6 @@
-import Image from "next/image";
+import Link from "next/link";
 import { motion } from "motion/react";
-import { assets, offices } from "@/data/home";
+import { offices } from "@/data/home";
 import { useLanguage } from "@/context/LanguageContext";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -17,11 +17,20 @@ export function OfficeLocationsSection() {
   return (
     <section className="py-section-gap bg-surface-white" id="offices">
       <Container>
-        <SectionHeader
-          eyebrow={t.offices.sectionEyebrow}
-          title={t.offices.sectionTitle}
-          className="mb-16"
-        />
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
+          <SectionHeader
+            eyebrow={t.offices.sectionEyebrow}
+            title={t.offices.sectionTitle}
+            align="left"
+            className="mb-0"
+          />
+          <Link
+            href="/locations"
+            className="shrink-0 px-6 py-3 border border-outline text-primary rounded-lg font-label-sm text-label-sm hover:bg-surface-container transition-all self-start lg:self-auto"
+          >
+            {t.offices.viewAllLocations}
+          </Link>
+        </div>
 
         <motion.div
           variants={staggerContainer}
@@ -32,7 +41,6 @@ export function OfficeLocationsSection() {
         >
           {offices.map((office) => {
             const officeText = t.offices[office.id];
-            const isAlexandria = office.id === "alexandria";
 
             return (
               <motion.article
@@ -46,23 +54,7 @@ export function OfficeLocationsSection() {
                     <h3 className="font-headline-md text-headline-md text-primary mb-2">
                       {officeText.name}
                     </h3>
-                    {/* Alexandria uses branch logo; Cairo shows official company name */}
-                    {isAlexandria ? (
-                      <Image
-                        src={assets.logos.alexandria}
-                        alt={officeText.name}
-                        width={250}
-                        height={250}
-                        className="h-10 w-full rounded-lg"
-                      />
-                    ) : (
-                      <p className="text-sm text-on-surface-variant font-medium leading-snug max-w-md">
-                        {officeText.company}
-                      </p>
-                    )}
                   </div>
-
-               
                 </div>
 
                 <div className="space-y-4 mb-8">
@@ -72,11 +64,22 @@ export function OfficeLocationsSection() {
                   </div>
                   <div className="flex gap-3">
                     <MaterialIcon name="call" className="text-secondary text-sm" />
-                    <p className="text-on-surface-variant text-sm">{office.phone}</p>
+                    <a
+                      href={`tel:${office.phone.replace(/\s/g, "")}`}
+                      className="text-on-surface-variant text-sm hover:text-primary transition-colors"
+                      dir="ltr"
+                    >
+                      {office.phone}
+                    </a>
                   </div>
                   <div className="flex gap-3">
                     <MaterialIcon name="mail" className="text-secondary text-sm" />
-                    <p className="text-on-surface-variant text-sm">{office.email}</p>
+                    <a
+                      href={`mailto:${office.email}`}
+                      className="text-on-surface-variant text-sm hover:text-primary transition-colors"
+                    >
+                      {office.email}
+                    </a>
                   </div>
 
                   <div className="mt-4 p-4 bg-surface-white rounded-lg border border-outline-variant">

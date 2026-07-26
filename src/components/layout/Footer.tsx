@@ -4,8 +4,9 @@ import { motion } from "motion/react";
 import {
   assets,
   offices,
-  officeSocials,
-  footerExpertiseLinks,
+  officialContact,
+  socialLinks,
+  footerQuickServiceLinks,
   footerLegalLinks,
   type SocialLink,
 } from "@/data/home";
@@ -15,39 +16,66 @@ import { MaterialIcon } from "@/components/ui/MaterialIcon";
 import { BrandIcon } from "@/components/ui/BrandIcon";
 import { fadeInUp } from "@/lib/animations";
 
+const DEVELOPER_LINKEDIN = "https://www.linkedin.com/in/ahmed-abdeldaiem-a26079227/";
+const DEVELOPER_EMAIL = "ahmadabdeldaiem18@gmail.com";
+
+/** Official Gmail glyph (envelope with the red "M" fold). */
+function GmailIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true" focusable="false">
+      <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
+    </svg>
+  );
+}
+
+const socialItemClass =
+  "inline-flex items-center justify-center w-9 h-9 rounded-full bg-surface-white/10 border border-surface-white/15 text-surface-white/85 transition-all duration-300 hover:bg-[#ff9100] hover:text-white hover:border-transparent hover:-translate-y-0.5";
+
+/**
+ * Unified social row (shared across all branches).
+ * Icons with an empty `href` render as non-navigating placeholders until URLs are added.
+ */
 function SocialRow({ links, label }: { links: SocialLink[]; label: string }) {
   return (
-    <div className="mt-5">
+    <div className="">
       <p className="text-xs uppercase tracking-widest text-surface-white/50 mb-2.5">{label}</p>
-      <div className="flex items-center gap-2.5">
-        {links.map((social) => (
-          <a
-            key={social.href}
-            href={social.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={social.platform}
-            className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-surface-white/10 border border-surface-white/15 text-surface-white/85 hover:bg-secondary-fixed hover:text-on-secondary-fixed hover:border-transparent hover:-translate-y-0.5 transition-all duration-300"
-          >
-            <BrandIcon platform={social.platform} className="w-4 h-4" />
-          </a>
-        ))}
+      <div className="flex items-center  flex-wrap gap-2.5">
+        {links.map((social) =>
+          social.href ? (
+            <a
+              key={social.platform}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.platform}
+              className={socialItemClass}
+            >
+              <BrandIcon platform={social.platform} className="w-4 h-4" />
+            </a>
+          ) : (
+            <span
+              key={social.platform}
+              aria-label={social.platform}
+              className={`${socialItemClass} cursor-default`}
+            >
+              <BrandIcon platform={social.platform} className="w-4 h-4" />
+            </span>
+          ),
+        )}
       </div>
     </div>
   );
 }
 
 interface OfficeColumnProps {
-  branch: "cairo" | "alexandria";
   title: string;
   address: string;
   phone: string;
-  email: string;
-  followLabel: string;
   delay: number;
 }
 
-function OfficeColumn({ branch, title, address, phone, email, followLabel, delay }: OfficeColumnProps) {
+/** Branch column — address + phone only (email/WhatsApp/social are unified below). */
+function OfficeColumn({ title, address, phone, delay }: OfficeColumnProps) {
   return (
     <motion.div {...fadeInUp} transition={{ ...fadeInUp.transition, delay }}>
       <h4 className="font-label-sm text-label-sm text-surface-white uppercase tracking-widest mb-5">
@@ -64,21 +92,13 @@ function OfficeColumn({ branch, title, address, phone, email, followLabel, delay
             {phone}
           </a>
         </li>
-        <li className="flex items-center gap-3">
-          <MaterialIcon name="mail" className="text-base text-secondary-fixed shrink-0" />
-          <a href={`mailto:${email}`} className="hover:text-surface-white transition-colors break-all">
-            {email}
-          </a>
-        </li>
       </ul>
-
-      <SocialRow links={officeSocials[branch]} label={followLabel} />
     </motion.div>
   );
 }
 
 /**
- * Site-wide footer — brand gradient, white logo, offices with socials, and links.
+ * Site-wide footer — brand gradient, white logo, offices, unified contact + socials, links.
  */
 export function Footer() {
   const { t } = useLanguage();
@@ -97,11 +117,11 @@ export function Footer() {
 
       <Container className="relative z-10 pt-section-gap pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-gutter gap-y-12">
-          {/* Brand + CTA */}
+          {/* Brand + unified contact */}
           <motion.div {...fadeInUp} className="lg:col-span-4">
             <Image
               src={assets.logos.footer}
-              alt="UHY Egypt"
+              alt={t.meta.siteName}
               width={200}
               height={80}
               className="h-16 w-auto object-contain mb-6"
@@ -110,39 +130,41 @@ export function Footer() {
               {t.footer.tagline}
             </p>
 
-            <p className="font-label-sm text-label-sm uppercase tracking-widest text-surface-white/70 mb-3">
-              {t.footer.getInTouchTitle}
-            </p>
-            <Link
-              href="/contact"
-              className="group inline-flex items-center gap-2 px-6 py-3 bg-surface-white text-primary rounded-lg font-label-sm text-label-sm shadow-lg hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95"
-            >
-              {t.footer.getInTouchCta}
-              <MaterialIcon
-                name="arrow_forward"
-                className="text-base rtl:rotate-180 transition-transform duration-300 group-hover:translate-x-1 rtl:group-hover:-translate-x-1"
-              />
-            </Link>
+            {/* One email + WhatsApp for all branches */}
+            <div className="flex items-center  w-full gap-5 mb-8">
+              <a
+                href={`mailto:${officialContact.email}`}
+                className="inline-flex items-center gap-1 text-sm text-surface-white/80 hover:text-surface-white transition-colors"
+              >
+                <MaterialIcon name="mail" className="text-base text-secondary-fixed shrink-0" />
+                <span className="break-all">{officialContact.email}</span>
+              </a>
+              <a
+                href={officialContact.whatsapp.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-sm text-surface-white/80 hover:text-surface-white transition-colors"
+              >
+                <BrandIcon platform="whatsapp" className="w-4 h-4 text-[#25D366] shrink-0" />
+                <span dir="ltr">{officialContact.whatsapp.display}</span>
+              </a>
+            </div>
+
+            <SocialRow links={socialLinks} label={t.footer.followUs} />
           </motion.div>
 
-          {/* Offices with branch socials */}
+          {/* Offices (address + phone per branch) */}
           <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-x-gutter gap-y-10">
             <OfficeColumn
-              branch="cairo"
               title={t.footer.cairoOffice}
               address={t.offices.cairo.address}
               phone={cairoOffice.phone}
-              email={cairoOffice.email}
-              followLabel={t.footer.followUs}
               delay={0.1}
             />
             <OfficeColumn
-              branch="alexandria"
               title={t.footer.alexandriaOffice}
               address={t.offices.alexandria.address}
               phone={alexOffice.phone}
-              email={alexOffice.email}
-              followLabel={t.footer.followUs}
               delay={0.2}
             />
           </div>
@@ -153,7 +175,7 @@ export function Footer() {
               {t.footer.quickLinks}
             </h4>
             <ul className="space-y-3 mb-6">
-              {footerExpertiseLinks.map((link) => (
+              {footerQuickServiceLinks.map((link) => (
                 <li key={link.key}>
                   <Link
                     href={link.href}
@@ -163,7 +185,7 @@ export function Footer() {
                       name="chevron_right"
                       className="text-base text-secondary-fixed rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1"
                     />
-                    {t.footer[link.key]}
+                    {t.serviceItems[link.key]}
                   </Link>
                 </li>
               ))}
@@ -175,6 +197,17 @@ export function Footer() {
                 {t.footer.availability}
               </span>
             </div>
+
+            <Link
+              href="/contact"
+              className="group mt-6 inline-flex items-center gap-2 px-6 py-3 bg-surface-white text-primary rounded-lg font-label-sm text-label-sm shadow-lg hover:bg-[#ff9100] hover:text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95"
+            >
+              {t.footer.getInTouchCta}
+              <MaterialIcon
+                name="arrow_forward"
+                className="text-base rtl:rotate-180 transition-transform duration-300 group-hover:translate-x-1 rtl:group-hover:-translate-x-1"
+              />
+            </Link>
           </motion.div>
         </div>
 
@@ -194,6 +227,28 @@ export function Footer() {
                 {t.footer[link.key]}
               </Link>
             ))}
+          </div>
+        </div>
+
+        <div className="mt-6 flex flex-col  gap-2">
+          <div className="flex items-center gap-2 text-xs text-surface-white/50">
+            <span>{t.footer.developedBy}</span>
+            <a
+              href={DEVELOPER_LINKEDIN}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t.footer.developedByLinkedIn}
+              className="inline-flex items-center justify-center text-surface-white/60 hover:text-secondary-fixed transition-colors"
+            >
+              <BrandIcon platform="linkedin" className="w-3.5 h-3.5" />
+            </a>
+            <a
+              href={`mailto:${DEVELOPER_EMAIL}`}
+              aria-label={t.footer.developedByEmail}
+              className="inline-flex items-center justify-center text-surface-white/60 hover:text-[#EA4335] transition-colors"
+            >
+              <GmailIcon className="w-3 h-3" />
+            </a>
           </div>
         </div>
       </Container>

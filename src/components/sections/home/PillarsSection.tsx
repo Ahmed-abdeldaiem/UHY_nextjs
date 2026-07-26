@@ -4,11 +4,10 @@ import { pillarGradients, pillarKeys } from "@/data/home";
 import { useLanguage } from "@/context/LanguageContext";
 import { DirectionalArrow, directionalArrowHoverClass } from "@/components/ui/DirectionalArrow";
 
-/** Official brand gradients — keep in sync with globals.css */
 const pillarBackgrounds = {
-  dark: "linear-gradient(to bottom, #0b573a, #1e7b51)",
-  bright: "linear-gradient(to bottom, #5cb23e, #51a13e)",
-  teal: "linear-gradient(to bottom, #009ca4, #23b4ba)",
+  dark: "linear-gradient(to bottom, var(--color-brand-gradient-dark-from), var(--color-brand-gradient-dark-to))",
+  bright: "linear-gradient(to bottom, var(--color-brand-gradient-bright-from), var(--color-brand-gradient-bright-to))",
+  accent: "linear-gradient(to bottom, var(--color-brand-gradient-accent-from), var(--color-brand-gradient-accent-to))",
 } as const;
 
 /**

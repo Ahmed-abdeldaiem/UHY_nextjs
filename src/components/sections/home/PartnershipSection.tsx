@@ -6,7 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { fadeInUp, slideInFromSide } from "@/lib/animations";
 
 /**
- * UHY International partnership — bilingual copy, team image, and global stats.
+ * BOKS International partnership — bilingual copy, team image, and global stats.
  */
 export function PartnershipSection() {
   const { t, isRtl } = useLanguage();
@@ -73,7 +73,10 @@ export function PartnershipSection() {
         </div>
       </Container>
 
-      <div className="absolute top-0 end-0 w-1/4 h-1/2 signature-lines opacity-10 pointer-events-none" />
+      <div
+        className="pointer-events-none absolute -top-16 -end-16 h-72 w-72 bg-contain bg-no-repeat opacity-[0.05]"
+        style={{ backgroundImage: "url('/B2.png')" }}
+      />
     </section>
   );
 }

@@ -3,30 +3,49 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "motion/react";
 import { navLinks, navServices, SERVICES_PAGE_HREF, servicesNavAfter } from "@/data/home";
 import { useLanguage } from "@/context/LanguageContext";
 import { LanguageSwitch } from "@/components/layout/LanguageSwitch";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
 
+/** Active only for exact, non-hash routes so section anchors (e.g. "/#offices") don't light up */
+function isActiveHref(pathname: string, href: string): boolean {
+  if (href.includes("#")) return false;
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 function MobileServicesSection({ onClose }: { onClose: () => void }) {
   const { t } = useLanguage();
+  const router = useRouter();
   const [isExpanded, setIsExpanded] = useState(false);
+  const isServicesActive = router.pathname.startsWith("/services");
 
   return (
     <div className="pt-1">
-      <div className="flex items-center rounded-lg hover:bg-surface-container transition-colors">
+      <div
+        className={`flex items-center rounded-lg transition-colors ${
+          isServicesActive ? "bg-[#ff9100]" : "hover:bg-surface-container"
+        }`}
+      >
         <Link
           href={SERVICES_PAGE_HREF}
           onClick={onClose}
-          className="flex-1 px-3 py-3 font-label-sm text-label-sm text-on-surface hover:text-primary transition-colors"
+          aria-current={isServicesActive ? "page" : undefined}
+          className={`flex-1 px-3 py-3 font-label-sm text-label-sm transition-colors ${
+            isServicesActive ? "text-white" : "text-on-surface hover:text-primary"
+          }`}
         >
           {t.nav.services}
         </Link>
         <button
           type="button"
           onClick={() => setIsExpanded((prev) => !prev)}
-          className="inline-flex items-center justify-center w-10 h-10 text-on-surface-variant hover:text-primary transition-colors"
+          className={`inline-flex items-center justify-center w-10 h-10 transition-colors ${
+            isServicesActive ? "text-white" : "text-on-surface-variant hover:text-primary"
+          }`}
           aria-expanded={isExpanded}
           aria-label={t.nav.allServices}
         >
@@ -49,7 +68,7 @@ function MobileServicesSection({ onClose }: { onClose: () => void }) {
             {navServices.map((service) => (
               <li key={service.key}>
                 <Link
-                  href={SERVICES_PAGE_HREF}
+                  href={`${SERVICES_PAGE_HREF}/${service.slug}`}
                   onClick={onClose}
                   className="block rounded-lg px-3 py-2.5 text-sm text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors leading-snug"
                 >
@@ -69,6 +88,7 @@ function MobileServicesSection({ onClose }: { onClose: () => void }) {
  */
 export function MobileNavMenu() {
   const { t, isRtl } = useLanguage();
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -122,18 +142,26 @@ export function MobileNavMenu() {
             </div>
 
             <nav className="flex-1 overflow-y-auto overscroll-contain px-4 py-4 space-y-1">
-              {navLinks.map((link) => (
-                <div key={link.key}>
-                  <Link
-                    href={link.href}
-                    onClick={close}
-                    className="block rounded-lg px-3 py-3 font-label-sm text-label-sm text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
-                  >
-                    {t.nav[link.key]}
-                  </Link>
-                  {link.key === servicesNavAfter && <MobileServicesSection onClose={close} />}
-                </div>
-              ))}
+              {navLinks.map((link) => {
+                const active = isActiveHref(router.pathname, link.href);
+                return (
+                  <div key={link.key}>
+                    <Link
+                      href={link.href}
+                      onClick={close}
+                      aria-current={active ? "page" : undefined}
+                      className={`block rounded-lg px-3 py-3 font-label-sm text-label-sm transition-colors ${
+                        active
+                          ? "bg-[#ff9100] text-white"
+                          : "text-on-surface hover:bg-surface-container hover:text-primary"
+                      }`}
+                    >
+                      {t.nav[link.key]}
+                    </Link>
+                    {link.key === servicesNavAfter && <MobileServicesSection onClose={close} />}
+                  </div>
+                );
+              })}
             </nav>
 
             <div className="px-5 py-5 border-t border-outline-variant space-y-4 shrink-0">

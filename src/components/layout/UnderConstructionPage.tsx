@@ -11,7 +11,7 @@ export function UnderConstructionPage() {
   const { t } = useLanguage();
 
   return (
-    <SiteLayout title={t.pages.underConstruction}>
+    <SiteLayout title={`${t.pages.underConstruction} | ${t.meta.siteName}`} noIndex>
       <div className="min-h-[60vh] flex items-center justify-center px-margin-mobile md:px-margin-desktop">
         <motion.h1
           initial={fadeInUp.initial}

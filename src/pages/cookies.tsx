@@ -1,5 +1,13 @@
-import { UnderConstructionPage } from "@/components/layout/UnderConstructionPage";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
-export default function CookiesPage() {
-  return <UnderConstructionPage />;
+/** Legacy route — cookies content lives on the Privacy page. */
+export default function CookiesRedirectPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    void router.replace("/privacy#cookies");
+  }, [router]);
+
+  return null;
 }

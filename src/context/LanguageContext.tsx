@@ -14,7 +14,7 @@ import {
   type TranslationKeys,
 } from "@/data/i18n/translations";
 
-const STORAGE_KEY = "uhy-locale";
+const STORAGE_KEY = "boks-locale";
 
 interface LanguageContextValue {
   locale: Locale;

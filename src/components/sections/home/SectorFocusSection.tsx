@@ -1,6 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "motion/react";
-import { sectors } from "@/data/home";
+import { SERVICES_PAGE_HREF, sectors } from "@/data/home";
 import { useLanguage } from "@/context/LanguageContext";
 import { Container } from "@/components/ui/Container";
 import { staggerContainer, staggerItem } from "@/lib/animations";
@@ -29,12 +30,12 @@ export function SectorFocusSection() {
               {t.sectors.sectionTitle}
             </h2>
           </div>
-          <button
-            type="button"
+          <Link
+            href={`${SERVICES_PAGE_HREF}#sectors`}
             className="px-6 py-3 border border-outline text-primary rounded-lg font-label-sm text-label-sm hover:bg-surface-container transition-all"
           >
             {t.sectors.allSectors}
-          </button>
+          </Link>
         </motion.div>
 
         <motion.div

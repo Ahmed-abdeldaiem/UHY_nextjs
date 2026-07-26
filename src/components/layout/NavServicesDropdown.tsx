@@ -10,7 +10,7 @@ import { MaterialIcon } from "@/components/ui/MaterialIcon";
 /**
  * Desktop services nav — clickable label links to /services, chevron opens dropdown.
  */
-export function NavServicesDropdown() {
+export function NavServicesDropdown({ active = false }: { active?: boolean }) {
   const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -36,8 +36,9 @@ export function NavServicesDropdown() {
     };
   }, [isOpen]);
 
-  const linkClass =
-    "font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap";
+  const linkClass = `font-label-sm text-label-sm ps-3 pe-1.5 py-1.5 rounded-md transition-colors whitespace-nowrap ${
+    active ? "bg-[#ff9100] text-white shadow-sm" : "text-on-surface-variant hover:text-primary hover:bg-surface-container"
+  }`;
 
   return (
     <div
@@ -46,7 +47,11 @@ export function NavServicesDropdown() {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <Link href={SERVICES_PAGE_HREF} className={linkClass}>
+      <Link
+        href={SERVICES_PAGE_HREF}
+        aria-current={active ? "page" : undefined}
+        className={linkClass}
+      >
         {t.nav.services}
       </Link>
 
@@ -57,7 +62,11 @@ export function NavServicesDropdown() {
         aria-label={t.nav.allServices}
         onClick={() => setIsOpen((prev) => !prev)}
         className={`inline-flex items-center justify-center w-6 h-6 rounded-md transition-colors ${
-          isOpen ? "text-primary bg-surface-container" : "text-on-surface-variant hover:text-primary"
+          active
+            ? "text-[#ff9100]"
+            : isOpen
+              ? "text-primary bg-surface-container"
+              : "text-on-surface-variant hover:text-primary"
         }`}
       >
         <MaterialIcon
@@ -91,7 +100,7 @@ export function NavServicesDropdown() {
             {navServices.map((service) => (
               <li key={service.key}>
                 <Link
-                  href={SERVICES_PAGE_HREF}
+                  href={`${SERVICES_PAGE_HREF}/${service.slug}`}
                   onClick={() => setIsOpen(false)}
                   className="group flex items-start gap-2 rounded-lg px-3 py-2.5 text-sm text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
                 >

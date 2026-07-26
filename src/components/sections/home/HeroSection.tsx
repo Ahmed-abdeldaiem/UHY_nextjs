@@ -82,7 +82,8 @@ export function HeroSection() {
               alt={`${t.hero.branchLabel[active.branch]} — ${slideText.title}`}
               fill
               priority
-              className="object-cover"
+              /* Mirror in Arabic so the subject sits opposite the RTL text */
+              className={`object-cover ${isRtl ? "-scale-x-100" : ""}`}
               style={{ objectPosition: active.focus }}
               sizes="100vw"
             />
@@ -90,8 +91,8 @@ export function HeroSection() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Overlays for legibility */}
-      <div className="absolute inset-0 z-[1] hero-gradient" />
+      {/* Overlays for legibility — directional overlay mirrors with the image in RTL */}
+      <div className={`absolute inset-0 z-[1] hero-gradient ${isRtl ? "-scale-x-100" : ""}`} />
       <div className="absolute inset-0 z-[1] bg-gradient-to-t from-primary/85 via-primary/20 to-transparent" />
 
       {/* Content */}
@@ -105,9 +106,12 @@ export function HeroSection() {
               exit={{ opacity: 0, x: -contentX }}
               transition={{ duration: 0.6, ease: EASE }}
             >
-              <span className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full bg-surface-white/15 backdrop-blur-sm border border-surface-white/25 text-surface-white text-label-sm font-label-sm">
-                <MaterialIcon name="location_on" className="text-base" />
-                {t.hero.branchLabel[active.branch]}
+              <span className="inline-flex items-center gap-2.5 mb-5 px-4 py-1.5 rounded-full bg-surface-white/15 backdrop-blur-sm border border-surface-white/25 text-surface-white text-label-sm font-label-sm">
+                <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-secondary-fixed opacity-75 animate-ping" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-secondary-fixed shadow-[0_0_8px_2px_rgba(255,145,0,0.7)]" />
+                </span>
+                {slideText.badge}
               </span>
 
               <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-surface-white mb-5">
@@ -139,19 +143,20 @@ export function HeroSection() {
 
           <div className="flex flex-wrap gap-4">
             <Link
-              href="/expertise"
+              href="/services"
               className="px-8 py-4 bg-secondary-fixed text-on-secondary-fixed rounded-lg font-label-sm text-label-sm hover:brightness-105 transition-all shadow-lg active:scale-95"
             >
               {t.hero.primaryCta}
             </Link>
             <Link
-              href={activeOffice.directionsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 border border-surface-white text-surface-white rounded-lg font-label-sm text-label-sm hover:bg-surface-white/10 transition-all backdrop-blur-sm active:scale-95 inline-flex items-center gap-2"
+              href="/contact"
+              className="group px-8 py-4 border border-surface-white text-surface-white rounded-lg font-label-sm text-label-sm hover:bg-surface-white/10 transition-all backdrop-blur-sm active:scale-95 inline-flex items-center gap-2"
             >
-              <MaterialIcon name="near_me" className="text-base" />
               {t.hero.contactCta}
+              <MaterialIcon
+                name="arrow_forward"
+                className="text-base rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1"
+              />
             </Link>
           </div>
         </div>

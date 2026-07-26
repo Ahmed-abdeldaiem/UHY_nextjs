@@ -10,15 +10,27 @@
 export const assets = {
   logos: {
     /** Navbar brand mark */
-    navbar: "/logo1.1.png",
+    navbar: "/logopng.png",
     /** Footer brand mark */
-    footer: "/logo3.png",
-    /** Alexandria branch card logo */
-    alexandria: "/logo_alex.jpg",
+    footer: "/logowhite.png",
+    /** Compact square icon (dark) */
+    icon: "/logo-icon.png",
+    /** Compact square icon (white, for dark backgrounds) */
+    iconWhite: "/logo-icon-white.png",
   },
   images: {
     /** Branded background used behind the site footer */
     footerBackground: "/footer.jpg",
+    /** Contact page hero background */
+    contactHero: "/contact.jpg",
+    /** Services page hero background */
+    servicesHero: "/service.jpg",
+    /** Locations page hero background */
+    locationsHero: "/location.jpeg",
+    /** Expertise page hero background */
+    expertiseHero: "/T3.jpeg",
+    /** Insights page hero background */
+    insightsHero: "/insights.jpg",
   },
 } as const;
 
@@ -33,7 +45,7 @@ export const navLinks = [
   { key: "home" as const, href: "/" },
   { key: "about" as const, href: "/about" },
   { key: "expertise" as const, href: "/expertise" },
-  { key: "locations" as const, href: "/#offices" },
+  { key: "locations" as const, href: "/locations" },
   { key: "insights" as const, href: "/insights" },
 ] as const;
 
@@ -52,16 +64,25 @@ export const navServices = [
   { key: "financialAssessment", slug: "financial-assessment" },
   { key: "feasibilityStudies", slug: "feasibility-studies" },
   { key: "managementConsulting", slug: "management-consulting" },
+  { key: "corporateGovernance", slug: "corporate-governance" },
   { key: "contractConsulting", slug: "contract-consulting" },
 ] as const;
 
 export type NavServiceKey = (typeof navServices)[number]["key"];
 
-/** Official contact emails shown in the top utility bar */
-export const topBarEmails = [
-  { id: "cairo" as const, email: "info@uhy-united.com" },
-  { id: "alexandria" as const, email: "info@uhy-eg-alex.com" },
-] as const;
+/**
+ * Single official contact used site-wide (top bar, floating buttons, footer).
+ * `whatsapp.link` uses the international wa.me format (country code, no "+"/spaces).
+ */
+export const officialContact = {
+  email: "info@wmcpa-eg.com",
+  whatsapp: {
+    /** Human-readable number shown in the UI */
+    display: "+2 011 1117 4241",
+    /** Egypt (+20) mobile 011 1117 4241 → 20 111 117 4241 */
+    link: "https://wa.me/201111174241",
+  },
+} as const;
 
 // ---------------------------------------------------------------------------
 // Hero carousel (team photos — branch tied via `branch` field)
@@ -76,9 +97,9 @@ export interface HeroSlide {
 }
 
 export const heroSlides: HeroSlide[] = [
-  { id: "alexLeadership", image: "/T1.jpg", branch: "alexandria", focus: "center 30%" },
-  { id: "alexExcellence", image: "/T2.jpg", branch: "alexandria", focus: "center 30%" },
-  { id: "cairoTeam", image: "/T3.jpg", branch: "cairo", focus: "center 35%" },
+  { id: "alexLeadership", image: "/SL1.jpg", branch: "alexandria", focus: "center 30%" },
+  { id: "alexExcellence", image: "/SL2.jpg", branch: "alexandria", focus: "center 30%" },
+  { id: "cairoTeam", image: "/T3.jpeg", branch: "cairo", focus: "center 35%" },
 ];
 
 // ---------------------------------------------------------------------------
@@ -88,10 +109,10 @@ export const heroSlides: HeroSlide[] = [
 export const pillarKeys = ["goal", "vision", "mission"] as const;
 export type PillarKey = (typeof pillarKeys)[number];
 
-export const pillarGradients: Record<PillarKey, "dark" | "bright" | "teal"> = {
+export const pillarGradients: Record<PillarKey, "dark" | "bright" | "accent"> = {
   goal: "dark",
   vision: "bright",
-  mission: "teal",
+  mission: "accent",
 };
 
 // ---------------------------------------------------------------------------
@@ -99,12 +120,12 @@ export const pillarGradients: Record<PillarKey, "dark" | "bright" | "teal"> = {
 // ---------------------------------------------------------------------------
 
 export const partnershipImage = {
-  src: "https://lh3.googleusercontent.com/aida-public/AB6AXuCt78Rx3TTM9luti56eKN_pyxprjjbodv04KHCCaBijGo-umUt4-GneXENXMhD6EmYTyi9s7t0wQgOO07hn53wZ036pNMvr7xjVFrbze2aRxcAEAlSh8MTN3e-UZzk46LnF2IaiaKc1qQ3IAoyQTfD6VOQdgKJizaeN-ic7OE2BnuQp54cO7-2q5V0g-1sbjoduhUDcoemLXc9o2taEzGe3fg_dpbTO2LT0MDa22ygbKZoi_eVq5rae",
+  src: "/BOKS1.jpg",
 };
 
 export const partnershipStats = [
-  { value: "340+", key: "globalOffices" as const },
-  { value: "95+", key: "countries" as const },
+  { value: "235", key: "globalOffices" as const },
+  { value: "75", key: "countries" as const },
 ];
 
 // ---------------------------------------------------------------------------
@@ -117,25 +138,34 @@ export interface OfficeData {
   phone: string;
   email: string;
   partner: { name: string; email: string };
+  /** Opens Google Maps directions to this office */
   directionsUrl: string;
+  /** Google Maps embed URL for the locations page */
+  mapEmbedUrl: string;
 }
 
 export const offices: OfficeData[] = [
   {
     id: "cairo",
     icon: "location_on",
-    phone: "+2 2516 7355",
-    email: "info@uhy-united.com",
-    partner: { name: "Ahmed Hegazy", email: "ahmed.hegazy@uhy-united.com" },
-    directionsUrl: "https://share.google/xUs1uX4GwF52Cv2YM",
+    phone: "+20 3 424 3371",
+    email: "info@wmcpa-eg.com",
+    partner: { name: "Waled Mounir & Mohammed Arafa", email: "info@wmcpa-eg.com" },
+    directionsUrl:
+      "https://www.google.com/maps/dir/?api=1&destination=Arkan%20Plaza%2C%20El%20Sheikh%20Zayed%2C%20Giza%2C%20Egypt&travelmode=driving",
+    mapEmbedUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27633.67134648762!2d30.974413810426725!3d30.0308636502199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14585b0525c31285%3A0xe916bcf3ee2db2ad!2sArkan%20Plaza!5e0!3m2!1sen!2seg!4v1785088796786!5m2!1sen!2seg",
   },
   {
     id: "alexandria",
     icon: "location_city",
-    phone: "+20 3 424 3371",
-    email: "info@uhy-eg-alex.com",
-    partner: { name: "Waled Mounir", email: "waled.mounir@uhy-eg-alex.com" },
-    directionsUrl: "https://share.google/X9A1eICPa9U2O75fT",
+    phone: "+2 011 1117 4241",
+    email: "info@wmcpa-eg.com",
+    partner: { name: "Waled Mounir & Mohammed Arafa", email: "info@wmcpa-eg.com" },
+    directionsUrl:
+      "https://www.google.com/maps/dir/?api=1&destination=38%20El-Prince%20Ibrahim%20Street%2C%20Ezbet%20Saad%2C%20Smouha%2C%20Alexandria%2C%20Egypt&travelmode=driving",
+    mapEmbedUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d218387.62980564873!2d29.64322709453125!3d31.21223079999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5c49700000001%3A0x3a2f0adb98a5d690!2sUHY%20EGYPT!5e0!3m2!1sen!2seg!4v1785088858927!5m2!1sen!2seg",
   },
 ];
 
@@ -144,8 +174,147 @@ export const offices: OfficeData[] = [
 // ---------------------------------------------------------------------------
 
 export const globalReachStats = [
-  { value: "340+", key: "globalOffices" as const, icon: "public" },
-  { value: "95+", key: "countries" as const, icon: "flag" },
+  { value: "235", key: "globalOffices" as const, icon: "public" },
+  { value: "75", key: "countries" as const, icon: "flag" },
+];
+
+// ---------------------------------------------------------------------------
+// Team strength — expertise & track record (branded showcase)
+// ---------------------------------------------------------------------------
+
+export const teamStrength = {
+  /** Branded banner — wide for desktop, square for small screens */
+  image: {
+    wide: "/wmcpa.jpg",
+    square: "/wmcpa2.jpg",
+  },
+  /** Brand slogan mirrored on the banner (labels translated in i18n) */
+  features: [
+    { key: "megaProjects", icon: "apartment" },
+    { key: "regionalReach", icon: "travel_explore" },
+    { key: "eliteTeam", icon: "diversity_3" },
+    { key: "trackRecord", icon: "military_tech" },
+  ],
+} as const;
+
+export type TeamStrengthFeatureKey = (typeof teamStrength.features)[number]["key"];
+
+// ---------------------------------------------------------------------------
+// About page
+// ---------------------------------------------------------------------------
+
+export const aboutImages = {
+  hero: "/egypt.jpg",
+  story: "/T3.jpeg",
+  partnershipBackground: "/footer.jpg",
+} as const;
+
+/** Headline stats shown as a band under the story section */
+export const aboutStats = [
+  { value: "25+", key: "years" as const, icon: "workspace_premium" },
+  { value: "2", key: "offices" as const, icon: "apartment" },
+  { value: "235", key: "globalOffices" as const, icon: "public" },
+  { value: "75", key: "countries" as const, icon: "flag" },
+];
+
+/** BOKS International global network figures (parent company infographic) */
+export const boksStats = [
+  { value: "123", key: "members" as const, icon: "groups" },
+  { value: "235", key: "offices" as const, icon: "business" },
+  { value: "75", key: "countries" as const, icon: "public" },
+  { value: "5.1k", key: "employees" as const, icon: "badge" },
+  { value: "$598m", key: "feeIncome" as const, icon: "payments" },
+  { value: "698", key: "partners" as const, icon: "handshake" },
+];
+
+/** "What sets us apart" value cards */
+export const aboutValues = [
+  { key: "integrity" as const, icon: "verified_user" },
+  { key: "excellence" as const, icon: "diamond" },
+  { key: "clientFocus" as const, icon: "diversity_3" },
+  { key: "globalReach" as const, icon: "language" },
+];
+
+/**
+ * Founding partners — translations live under about.leadership.partners[key].
+ * `image` is the portrait photo; `icon` reflects each partner's focus.
+ */
+export const foundingPartners = [
+  {
+    key: "walidMounir" as const,
+    image: "/walid.jpeg",
+    icon: "account_balance",
+  },
+  {
+    key: "mohamedArafa" as const,
+    image: "/mohamed.jpeg",
+    icon: "fact_check",
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Expertise page — publications & professional presence
+// ---------------------------------------------------------------------------
+
+/** Four highlight cards under the Expertise hero — copy in `t.expertisePage.strengths`. */
+export const expertiseStrengths = [
+  { key: "experience" as const, icon: "workspace_premium" },
+  { key: "multidisciplinary" as const, icon: "groups" },
+  { key: "regional" as const, icon: "public" },
+  { key: "thoughtLeadership" as const, icon: "auto_stories" },
+] as const;
+
+export type ExpertiseStrengthKey = (typeof expertiseStrengths)[number]["key"];
+
+export type ExpertisePublicationKey =
+  | "footballEconomics"
+  | "internalAuditCoso"
+  | "corruptionSports";
+
+export const expertisePublications: {
+  key: ExpertisePublicationKey;
+  image: string;
+  href: string;
+}[] = [
+  {
+    key: "footballEconomics",
+    image: "/Li1.png",
+    href: "https://www.albatel-research.org/publications/football-economics",
+  },
+  {
+    key: "internalAuditCoso",
+    image: "/Li2.png",
+    href: "https://www.albatel-research.org/publications/internal-audit",
+  },
+  {
+    key: "corruptionSports",
+    image: "/Li3.jpeg",
+    href: "https://www.albatel-research.org/publications/corruption",
+  },
+];
+
+export type ExpertiseGalleryKey = "cairoFair" | "jarir" | "riyadhFair" | "universities";
+
+export const expertiseGalleries: {
+  key: ExpertiseGalleryKey;
+  images: string[];
+}[] = [
+  {
+    key: "cairoFair",
+    images: ["/Cairo2.jfif", "/Cairo3.jfif", "/Cairo4.jfif"],
+  },
+  {
+    key: "jarir",
+    images: ["/Jarir.jfif"],
+  },
+  {
+    key: "riyadhFair",
+    images: ["/Riyad1.jfif", "/Riyad2.jfif", "/Riyad3.jfif", "/Riyad4.jfif"],
+  },
+  {
+    key: "universities",
+    images: ["/college1.jfif", "/college2.jfif", "/college3.jfif"],
+  },
 ];
 
 // ---------------------------------------------------------------------------
@@ -169,6 +338,54 @@ export const services: ServiceConfig[] = [
   { id: "finance", icon: "account_balance", backgroundIcon: "monetization_on", variant: "wide", colSpan: 8 },
 ];
 
+/** Icons for each navigable service (titles in `t.serviceItems`). */
+const serviceIcons: Record<NavServiceKey, string> = {
+  auditAndReview: "fact_check",
+  bookkeeping: "menu_book",
+  taxAndInternationalTax: "receipt_long",
+  transferPricing: "compare_arrows",
+  internalAudit: "policy",
+  fraudExamination: "gavel",
+  financialAssessment: "monitoring",
+  feasibilityStudies: "query_stats",
+  managementConsulting: "insights",
+  corporateGovernance: "assured_workload",
+  contractConsulting: "handshake",
+};
+
+/**
+ * Full list of professional offerings for the Services page & detail routes.
+ * Titles: `t.serviceItems` · short copy: `t.servicesPage.details` ·
+ * long copy: `t.servicesPage.pages[key]`.
+ */
+export const serviceOfferings = navServices.map((service) => ({
+  key: service.key,
+  slug: service.slug,
+  icon: serviceIcons[service.key],
+  href: `${SERVICES_PAGE_HREF}/${service.slug}` as const,
+}));
+
+/** Featured corporate / institutional offering (also has its own detail page). */
+export const corporateService = {
+  key: "corporate" as const,
+  slug: "corporate-institutions",
+  icon: "domain",
+  href: `${SERVICES_PAGE_HREF}/corporate-institutions` as const,
+};
+
+export type ServicePageKey = NavServiceKey | typeof corporateService.key;
+
+export function getServiceBySlug(slug: string) {
+  const offering = serviceOfferings.find((s) => s.slug === slug);
+  if (offering) return offering;
+  if (slug === corporateService.slug) return corporateService;
+  return null;
+}
+
+export function getAllServiceSlugs(): string[] {
+  return [...serviceOfferings.map((s) => s.slug), corporateService.slug];
+}
+
 // ---------------------------------------------------------------------------
 // Sectors
 // ---------------------------------------------------------------------------
@@ -177,80 +394,162 @@ export const sectors = [
   {
     id: "manufacturing" as const,
     image: {
-      src: "https://lh3.googleusercontent.com/aida-public/AB6AXuCYvBkQ8Gclv_hVzih0oCuugLz8bJ5s1qsuF-9jubjKUMD3N2nNnF7K_P6YIvD2oLgAbsppXRwSOJQ0ygW84GutcXFTdDQ3J2jFmOgZHIWqsd8-bQLrXTL62qqc0U2uXW3LhfxkXmmgEcr8RcvXGnsonbEExYmVERDMZuTpEuUV2wxHp-gBaK5MaYHx9M_eqEHUh_0Tt2gKVi9rydoIA0lrCAS3qD9FYBiDOuHSpVo1q-Dg9hMOwHdV",
+      src: "/indust1.jpg",
     },
   },
   {
     id: "energy" as const,
     image: {
-      src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAMlRrBGBjIB15EPgdVp7r6wo-mTvRVvio48Fk7fCZj_v738-gOvrATs4IAIwwKEg87kd3zYxYPq6r_u6K34cu9Aho99y15gMqynwlDPMT-Tl232KKgPin1K4pMj-xaRx0otytDPsvmIjMctJuaK9JmI175X5oCMZP4zC0DvBf9laLrlkfAohfMNgBYAKz0Je5FShDJpV64gOFJ052VSKWTyndSMWPJUqxadg4Jvik2f9886sLcfddI",
+      src: "/indust2.jpg",
     },
   },
   {
     id: "realEstate" as const,
     image: {
-      src: "https://lh3.googleusercontent.com/aida-public/AB6AXuCk_MwfHFExucgJbBnukWpZYTAmkVc-HPIF7ZiR5JO_qJnPDjUT5GLdt7tgLaqIeIV8-dgDkAY9Yw1gYcUGAKQ1u_dKtxGUVxHUp7tK_L_HJwhP0ex4H0iEE-76VORJB1Ifycr-f0OnmBsuK0Lyz40CwulNlqwFj3lstTS1OrgTNLwFgCv88UQe0PZI5C18bjUfb54WhDJOK3AF4sfTb6474-5bnziGtum0mrnUKWIjWpv-c0Pf--rx",
+      src: "/indust3.jpg",
     },
   },
+];
+
+/**
+ * Industry sectors for the Services page carousel — content lives under
+ * `t.servicesPage.sectorItems[key]`. Icon-led cards keep the brand identity
+ * consistent regardless of imagery availability.
+ */
+export type ServiceSectorKey =
+  | "manufacturing"
+  | "energy"
+  | "realEstate"
+  | "financialServices"
+  | "healthcare"
+  | "retail"
+  | "technology"
+  | "hospitality"
+  | "agriculture"
+  | "publicSector"
+  | "transport"
+  | "education";
+
+export const serviceSectors: { key: ServiceSectorKey; icon: string }[] = [
+  { key: "manufacturing", icon: "factory" },
+  { key: "energy", icon: "bolt" },
+  { key: "realEstate", icon: "apartment" },
+  { key: "financialServices", icon: "account_balance" },
+  { key: "healthcare", icon: "local_hospital" },
+  { key: "retail", icon: "shopping_bag" },
+  { key: "technology", icon: "memory" },
+  { key: "hospitality", icon: "hotel" },
+  { key: "agriculture", icon: "agriculture" },
+  { key: "publicSector", icon: "corporate_fare" },
+  { key: "transport", icon: "local_shipping" },
+  { key: "education", icon: "school" },
 ];
 
 // ---------------------------------------------------------------------------
 // Insights articles
 // ---------------------------------------------------------------------------
 
-export const insightArticles = [
+export type InsightArticleId =
+  | "thirdPartyRisk"
+  | "meahcoRevenue"
+  | "securitizationBubble"
+  | "ias15Revenue";
+
+export interface InsightArticleConfig {
+  id: InsightArticleId;
+  slug: string;
+  image: string;
+  icon: string;
+}
+
+/**
+ * Insights articles — titles/excerpts/body live under `t.insights.articles[id]`.
+ * Homepage shows the first two; the Insights page lists all.
+ */
+export const insightArticles: InsightArticleConfig[] = [
   {
-    id: "taxReform" as const,
-    image: {
-      src: "https://lh3.googleusercontent.com/aida-public/AB6AXuB4DKmjgffrwUcbO5mlxA6llnUGGSSQnnnnGADZ90d-NqBhbfjJ6MLskY9uWhajZXoBZisAtyw1SmBoX894oPx799ZJ3GbVm0E6IaAEMo4mnzxVUoDQ6hKRfrORYlfh1xt-UtvzJok7eKntAxgpPEjZhnticlI3J0SinY0AxoQAa7WbXb8CF5fMYgoc_jnWKMf0ZPkz5oqLR8Dv8UnG18KJu20Re57cRh465KwoDHQz6E6wCddf-gM9",
-    },
+    id: "thirdPartyRisk",
+    slug: "third-party-risk-assessment-ey-breach",
+    image: "/service.jpg",
+    icon: "security",
   },
   {
-    id: "marketVolatility" as const,
-    image: {
-      src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAS6WksnvHCV2Cyg0jjD1Y9Q4oI6hI3uTYq0vCmbEN6hQ5-AgZY9jQM7euZhnel_kYbX1LDHABdh7d5m5zWHB67atyhA0fWAb_u-ws9B3KGN6WiXt3R8l7IW5lZ-PhaKc3F-a3zCUBhhpb4-kq9FTyHCylARkqHJxEnwFMbxSuilVuloXi2cohWy7Cc1w_ZaAnyl_xsWTu_CrJI0lIBbSTfDulGskIyVEq8eHC5jFOFZsb7_zAgU_xP",
-    },
+    id: "meahcoRevenue",
+    slug: "meahco-revenue-recognition-case",
+    image: "/egypt.jpg",
+    icon: "gavel",
+  },
+  {
+    id: "securitizationBubble",
+    slug: "egypt-real-estate-securitization",
+    image: "/indust3.jpg",
+    icon: "apartment",
+  },
+  {
+    id: "ias15Revenue",
+    slug: "ias-15-revenue-from-contracts",
+    image: "/indust1.jpg",
+    icon: "receipt_long",
   },
 ];
+
+export function getInsightBySlug(slug: string) {
+  return insightArticles.find((article) => article.slug === slug) ?? null;
+}
+
+export function getAllInsightSlugs() {
+  return insightArticles.map((article) => article.slug);
+}
 
 // ---------------------------------------------------------------------------
 // Footer links (labels from translations)
 // ---------------------------------------------------------------------------
 
-export const footerExpertiseLinks = [
-  { key: "auditAssurance" as const, href: "/services/audit" },
-  { key: "taxAdvisory" as const, href: "/services/tax" },
-  { key: "submitRfp" as const, href: "/rfp" },
-];
+/**
+ * Top services shown in the footer Quick Links column.
+ * Labels come from `t.serviceItems[key]`.
+ */
+export const footerQuickServiceLinks = [
+  { key: "auditAndReview" as const, href: "/services/audit-and-review" },
+  { key: "taxAndInternationalTax" as const, href: "/services/tax" },
+  { key: "corporateGovernance" as const, href: "/services/corporate-governance" },
+  { key: "transferPricing" as const, href: "/services/transfer-pricing" },
+  { key: "internalAudit" as const, href: "/services/internal-audit" },
+] as const;
 
+/** Legal footer links — Disclosure & Cookies anchor into the Privacy page. */
 export const footerLegalLinks = [
-  { key: "disclosure" as const, href: "/disclosure" },
+  { key: "disclosure" as const, href: "/privacy#disclosure" },
   { key: "privacy" as const, href: "/privacy" },
-  { key: "cookies" as const, href: "/cookies" },
+  { key: "cookies" as const, href: "/privacy#cookies" },
 ];
 
-export type SocialPlatform = "linkedin" | "instagram" | "facebook";
+export type SocialPlatform =
+  | "linkedin"
+  | "instagram"
+  | "facebook"
+  | "x"
+  | "youtube"
+  | "tiktok"
+  | "whatsapp";
 
 export interface SocialLink {
   platform: SocialPlatform;
   href: string;
 }
 
-/** Branch-specific social media accounts */
-export const officeSocials: Record<"cairo" | "alexandria", SocialLink[]> = {
-  cairo: [
-    {
-      platform: "linkedin",
-      href: "https://www.linkedin.com/company/united-for-auditing-tax-advisory-financial-services/?originalSubdomain=eg",
-    },
-    { platform: "facebook", href: "https://www.facebook.com/UHYEGYPT/?locale=ar_AR" },
-  ],
-  alexandria: [
-    {
-      platform: "linkedin",
-      href: "https://www.linkedin.com/company/uhy-waled-mounir-mohammed-arafa/posts/?feedView=all",
-    },
-    { platform: "instagram", href: "https://www.instagram.com/uhywaledmounirmohammedarafa/" },
-    { platform: "facebook", href: "https://www.facebook.com/uhyalexandriaegypt/?locale=ar_AR" },
-  ],
-};
+/**
+ * Unified social media accounts — one set shared across all branches.
+ *
+ * 👉 TO ADD SOCIAL MEDIA LINKS: paste each page URL into the matching `href`
+ *    below (e.g. facebook: "https://www.facebook.com/your-page").
+ *    While `href` is an empty string, the icon is shown but not clickable.
+ */
+export const socialLinks: SocialLink[] = [
+  { platform: "facebook", href: "" },
+  { platform: "instagram", href: "" },
+  { platform: "x", href: "" },
+  { platform: "youtube", href: "" },
+  { platform: "tiktok", href: "" },
+  { platform: "linkedin", href: "" },
+];

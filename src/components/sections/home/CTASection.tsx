@@ -44,7 +44,7 @@ export function CTASection() {
             {t.cta.primary}
           </Link>
           <Link
-            href="/#offices"
+            href="/locations"
             className="px-10 py-4 border border-surface-white text-surface-white rounded-lg font-label-sm text-label-sm hover:bg-surface-white/10 transition-all active:scale-95 text-center"
           >
             {t.cta.secondary}
