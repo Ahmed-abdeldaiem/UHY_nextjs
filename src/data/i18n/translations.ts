@@ -23,6 +23,7 @@ export const translations = {
       home: "Home",
       about: "About",
       expertise: "Expertise",
+      partners: "Partners",
       locations: "Locations",
       insights: "Insights",
       services: "Services",
@@ -332,7 +333,7 @@ export const translations = {
       eyebrow: "Global Impact, Local Presence",
       title: "An accredited independent member of BOKS International",
       paragraph1:
-        "An independent member of BOKS International, a top 20 global alliance of expert firms with more than 70 quality-assured member firms in over 50 countries around the world. With a rapidly growing global presence, their cross-border service offering facilitates the international operations of businesses of all sizes and ambitions. Supporting firm growth and development, BOKS International is the global alliance of choice offering clients fast and effective access to quality-assured professionals around the globe.",
+        "An independent member of BOKS International, a top 10 global alliance of expert firms with more than 70 quality-assured member firms in over 50 countries around the world. With a rapidly growing global presence, their cross-border service offering facilitates the international operations of businesses of all sizes and ambitions. Supporting firm growth and development, BOKS International is the global alliance of choice offering clients fast and effective access to quality-assured professionals around the globe.",
       paragraph2:
         "Supporting firm growth and development, we are the global alliance of choice offering clients fast and effective access to professionals around the globe.",
       memberFirms: "Member Firms",
@@ -344,6 +345,9 @@ export const translations = {
       sectionEyebrow: "Our Presence",
       sectionTitle: "Visit Our Offices",
       contactPartner: "Contact Partner",
+      contactPartnerHint: "Chat on WhatsApp",
+      phoneLabel: "Phone",
+      mobileLabel: "Mobile",
       getDirections: "Get Directions",
       viewAllLocations: "View all locations",
       cairo: {
@@ -355,7 +359,7 @@ export const translations = {
       alexandria: {
         name: "Alexandria Office",
         company: "Waled Mounir & Mohammed Arafa",
-        address: "38 El-Prince Ibrahim Street Ezbet Saad Smouha Egypt",
+        address: "38 El Bakly Street, at the intersection with Prince Ibrahim Mosque Street - Ezbet Saad, Smouha - Alexandria",
       },
     },
     locationsPage: {
@@ -372,6 +376,51 @@ export const translations = {
       },
       mapLabel: "Office location on Google Maps",
       contactOffice: "Contact this office",
+    },
+    successPartners: {
+      eyebrow: "Trusted by Leaders",
+      title: "Our Success Partners",
+      subtitle:
+        "We are proud to serve leading institutions and enterprises — a reflection of the depth, capability and trust behind every engagement we deliver.",
+      cta: "View key partners",
+      logoAlt: "Success partner",
+    },
+    partnersPage: {
+      meta: {
+        title: "Success Partners | Waled Mounir & Muhammad Arafa",
+        description:
+          "Discover key institutions and companies that trust Waled Mounir & Muhammad Arafa for audit, tax and advisory excellence across Egypt.",
+      },
+      hero: {
+        eyebrow: "Client Trust",
+        title: "Success Partners",
+        subtitle:
+          "Our work with major organizations and enterprises demonstrates the strength of our practice — precision, integrity and results at institutional scale.",
+      },
+      intro: {
+        eyebrow: "A Network of Confidence",
+        title: "Institutions that choose excellence",
+        body:
+          "From industry leaders to specialized enterprises, our success partners represent long-standing relationships built on professional rigor and measurable value. Their trust is the clearest measure of our capability.",
+      },
+      stats: {
+        partners: "Success Partners",
+        institutions: "Institutional Clients",
+        trust: "Trusted Engagements",
+      },
+      grid: {
+        eyebrow: "Featured Partners",
+        title: "Key partners who inspire our best work",
+        subtitle:
+          "A selection of leading organizations that rely on us for audit, tax, advisory and governance excellence — among many more success partners we are proud to serve.",
+      },
+      cta: {
+        title: "Ready to join our success partners?",
+        description:
+          "Let's discuss how our team can support your organization's next chapter with the same rigor trusted by leading institutions.",
+        primary: "Get in Touch",
+        secondary: "Explore Our Services",
+      },
     },
     expertisePage: {
       meta: {
@@ -608,7 +657,9 @@ export const translations = {
             role: "Audit Partner",
             credentials: [
               "Former Audit Partner at a leading global firm",
-              "Member, Egyptian Society of Certified Public Accountants",
+              "Master's in Accounting and Auditing",
+              "International QuickBooks Certificate from Intuit International",
+              "Fellow, Egyptian Society of Certified Public Accountants",
               "Member, Arab Federation of Accountants & Auditors",
               "Treasurer, Association of Accountants & Internal Auditors (AAIA)",
               "Secretary-General, Research & Development Committee – AAIA",
@@ -1156,6 +1207,7 @@ export const translations = {
       home: "الرئيسية",
       about: "من نحن",
       expertise: "خبراتنا",
+      partners: "شركاء النجاح",
       locations: "فروعنا",
       insights: "رؤى وتحليلات",
       services: "الخدمات",
@@ -1464,7 +1516,7 @@ export const translations = {
       eyebrow: "تأثير عالمي، حضور محلي",
       title: "عضو معتمد ومستقل في BOKS International",
       paragraph1:
-        "عضو مستقل في BOKS International، أحد أكبر 20 تحالفاً عالمياً للمكاتب المتخصصة، يضم أكثر من 70 مكتباً عضواً مضمون الجودة في أكثر من 50 دولة حول العالم. ومع حضور عالمي سريع النمو، تسهّل خدماتهم العابرة للحدود العمليات الدولية للشركات بمختلف أحجامها وطموحاتها. ودعماً لنمو المكاتب وتطورها، تُعدّ BOKS International التحالف العالمي المفضل الذي يتيح للعملاء وصولاً سريعاً وفعّالاً إلى مهنيين مضمونين بالجودة حول العالم.",
+        "عضو مستقل في BOKS International، أحد أكبر 10 تحالفاً عالمياً للمكاتب المتخصصة، يضم أكثر من 70 مكتباً عضواً مضمون الجودة في أكثر من 50 دولة حول العالم. ومع حضور عالمي سريع النمو، تسهّل خدماتهم العابرة للحدود العمليات الدولية للشركات بمختلف أحجامها وطموحاتها. ودعماً لنمو المكاتب وتطورها، تُعدّ BOKS International التحالف العالمي المفضل الذي يتيح للعملاء وصولاً سريعاً وفعّالاً إلى مهنيين مضمونين بالجودة حول العالم.",
       paragraph2:
         "دعماً لنمو المكاتب وتطورها، نحن التحالف العالمي المفضل الذي يتيح للعملاء وصولاً سريعاً وفعّالاً إلى مهنيين حول العالم.",
       memberFirms: "مكاتب أعضاء",
@@ -1476,6 +1528,9 @@ export const translations = {
       sectionEyebrow: "حضورنا",
       sectionTitle: "زيارتكم تشرفنا",
       contactPartner: "شريك الاتصال",
+      contactPartnerHint: "تواصل عبر واتساب",
+      phoneLabel: "هاتف",
+      mobileLabel: "موبايل",
       getDirections: "احصل على الاتجاهات",
       viewAllLocations: "عرض جميع المواقع",
       cairo: {
@@ -1487,7 +1542,7 @@ export const translations = {
       alexandria: {
         name: "مكتب الإسكندرية",
         company: "Waled Mounir & Mohammed Arafa",
-        address: "38 شارع الأمير إبراهيم عزبة سعد سموحة مصر",
+        address: "38 ش البقلى مع تقاطع ش مسجد البرنس ابراهيم - عزبة سعد سموحة - اسكندرية",
       },
     },
     locationsPage: {
@@ -1504,6 +1559,51 @@ export const translations = {
       },
       mapLabel: "موقع المكتب على خرائط جوجل",
       contactOffice: "تواصل مع هذا المكتب",
+    },
+    successPartners: {
+      eyebrow: "ثقة القادة",
+      title: "شركاء نجاحنا",
+      subtitle:
+        "نفتخر بخدمة كبرى المؤسسات والشركات — شهادة على عمق خبرتنا وقدراتنا والثقة التي تُبنى مع كل مهمة ننجزها.",
+      cta: "عرض أهم الشركاء",
+      logoAlt: "شريك نجاح",
+    },
+    partnersPage: {
+      meta: {
+        title: "شركاء النجاح | وليد منير ومحمد عرفة",
+        description:
+          "تعرّف على أبرز المؤسسات والشركات التي تثق بوليد منير ومحمد عرفة في التدقيق والضرائب والاستشارات في مصر.",
+      },
+      hero: {
+        eyebrow: "ثقة العملاء",
+        title: "شركاء النجاح",
+        subtitle:
+          "عملنا مع كبرى المؤسسات والشركات يعكس قوة ممارستنا — دقة ونزاهة ونتائج على مستوى مؤسسي.",
+      },
+      intro: {
+        eyebrow: "شبكة من الثقة",
+        title: "مؤسسات تختار التميز",
+        body:
+          "من روّاد الصناعة إلى المؤسسات المتخصصة، يمثّل شركاء نجاحنا علاقات طويلة الأمد مبنية على الانضباط المهني والقيمة الملموسة. وثقتهم هي أوضح مقياس لقدراتنا.",
+      },
+      stats: {
+        partners: "شركاء نجاح",
+        institutions: "عملاء مؤسسيون",
+        trust: "مهام موثوقة",
+      },
+      grid: {
+        eyebrow: "شركاء مختارون",
+        title: "أبرز الشركاء الذين يلهمون أفضل أعمالنا",
+        subtitle:
+          "مجموعة مختارة من المؤسسات الرائدة التي تعتمد علينا في التدقيق والضرائب والاستشارات والحوكمة — ضمن شركاء نجاح كثيرين نفتخر بخدمتهم.",
+      },
+      cta: {
+        title: "هل أنتم مستعدون للانضمام إلى شركاء نجاحنا؟",
+        description:
+          "دعونا نناقش كيف يمكن لفريقنا أن يدعم المرحلة القادمة لمؤسستكم بنفس الدقة التي يثق بها كبار العملاء.",
+        primary: "تواصل معنا",
+        secondary: "استكشف خدماتنا",
+      },
     },
     expertisePage: {
       meta: {
@@ -1739,7 +1839,9 @@ export const translations = {
             role: "شريك المراجعة",
             credentials: [
               "شريك المراجعة في إحدى الشركات العالمية سابقاً",
-              "عضو جمعية المحاسبين القانونيين",
+              "ماجستير في المحاسبة والمراجعة",
+              "حاصل على الشهادة الدولية في QuickBooks من Intuit International",
+              "زميل جمعية المحاسبين القانونيين",
               "عضو اتحاد المحاسبين والمراجعين العرب",
               "أمين صندوق جمعية المحاسبين والمدققين الداخليين (AAIA)",
               "أمين عام لجنة البحث والتطوير بجمعية المحاسبين والمدققين الداخليين (AAIA)",

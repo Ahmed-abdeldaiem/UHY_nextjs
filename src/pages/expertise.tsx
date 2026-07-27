@@ -13,6 +13,7 @@ import { Container } from "@/components/ui/Container";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
 import { DirectionalArrow } from "@/components/ui/DirectionalArrow";
 import { LeadershipSection } from "@/components/sections/shared/LeadershipSection";
+import { SuccessPartnersTeaser } from "@/components/sections/shared/SuccessPartnersTeaser";
 import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations";
 
 const HERO_GRADIENT =
@@ -40,7 +41,7 @@ export default function ExpertisePage() {
       {/* ------------------------------------------------------------------ */}
       {/* Hero — T3.jpeg                                                      */}
       {/* ------------------------------------------------------------------ */}
-      <section className="relative w-full overflow-hidden bg-primary min-h-[440px] md:min-h-[580px] flex items-center">
+      <section className="relative w-full overflow-hidden bg-primary min-h-[440px] md:min-h-[630px] flex items-center">
         <div className="absolute inset-0 z-0">
           <Image
             src={assets.images.expertiseHero}
@@ -321,6 +322,8 @@ export default function ExpertisePage() {
           </div>
         </Container>
       </section>
+
+      <SuccessPartnersTeaser />
 
       {/* ------------------------------------------------------------------ */}
       {/* CTA                                                                 */}

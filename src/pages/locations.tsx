@@ -7,7 +7,7 @@ import { SiteLayout } from "@/components/layout/SiteLayout";
 import { Container } from "@/components/ui/Container";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
 import { DirectionalArrow } from "@/components/ui/DirectionalArrow";
-import { BrandIcon } from "@/components/ui/BrandIcon";
+import { ContactPartnerCard } from "@/components/ui/ContactPartnerCard";
 import { fadeInUp } from "@/lib/animations";
 
 const HERO_GRADIENT =
@@ -123,15 +123,37 @@ export default function LocationsPage() {
                         {officeText.address}
                       </span>
                     </li>
-                    <li className="flex items-center gap-3">
-                      <MaterialIcon name="call" className="text-secondary text-xl shrink-0" />
-                      <a
-                        href={`tel:${office.phone.replace(/\s/g, "")}`}
-                        className="font-body-md text-body-md text-primary hover:text-secondary transition-colors"
-                        dir="ltr"
-                      >
-                        {office.phone}
-                      </a>
+                    <li className="flex items-start gap-3">
+                      <MaterialIcon name="call" className="text-secondary text-xl mt-0.5 shrink-0" />
+                      <div>
+                        <p className="text-[10px] uppercase tracking-wider text-on-surface-variant/70 mb-0.5">
+                          {t.offices.phoneLabel}
+                        </p>
+                        <a
+                          href={`tel:${office.phone.replace(/\s/g, "")}`}
+                          className="font-body-md text-body-md text-primary hover:text-secondary transition-colors"
+                          dir="ltr"
+                        >
+                          {office.phone}
+                        </a>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <MaterialIcon name="smartphone" className="text-secondary text-xl mt-0.5 shrink-0" />
+                      <div>
+                        <p className="text-[10px] uppercase tracking-wider text-on-surface-variant/70 mb-0.5">
+                          {t.offices.mobileLabel}
+                        </p>
+                        <a
+                          href={officialContact.whatsapp.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-body-md text-body-md text-primary hover:text-secondary transition-colors"
+                          dir="ltr"
+                        >
+                          {office.mobile}
+                        </a>
+                      </div>
                     </li>
                     <li className="flex items-center gap-3">
                       <MaterialIcon name="mail" className="text-secondary text-xl shrink-0" />
@@ -142,27 +164,7 @@ export default function LocationsPage() {
                         {office.email}
                       </a>
                     </li>
-                    <li className="flex items-center gap-3">
-                      <BrandIcon platform="whatsapp" className="w-5 h-5 text-[#25D366] shrink-0" />
-                      <a
-                        href={officialContact.whatsapp.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-body-md text-body-md text-primary hover:text-secondary transition-colors"
-                        dir="ltr"
-                      >
-                        {officialContact.whatsapp.display}
-                      </a>
-                    </li>
                   </ul>
-
-                  <div className="rounded-2xl bg-surface-container-low border border-outline-variant p-4 mb-6">
-                    <p className="text-xs font-bold text-primary uppercase tracking-widest mb-1">
-                      {t.offices.contactPartner}
-                    </p>
-                    <p className="text-sm font-semibold text-on-surface">{office.partner.name}</p>
-                    <p className="text-xs text-on-surface-variant mt-0.5">{office.partner.email}</p>
-                  </div>
 
                   <div className="flex flex-col sm:flex-row gap-3">
                     <a
@@ -202,6 +204,8 @@ export default function LocationsPage() {
               </motion.article>
             );
           })}
+
+          <ContactPartnerCard className="pt-2" />
         </Container>
       </section>
 

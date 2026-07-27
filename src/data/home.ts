@@ -28,9 +28,11 @@ export const assets = {
     /** Locations page hero background */
     locationsHero: "/location.jpeg",
     /** Expertise page hero background */
-    expertiseHero: "/T3.jpeg",
+    expertiseHero: "/T3-1.jpeg",
     /** Insights page hero background */
     insightsHero: "/insights.jpg",
+    /** Success Partners page hero background */
+    partnersHero: "/success.jpg",
   },
 } as const;
 
@@ -45,6 +47,7 @@ export const navLinks = [
   { key: "home" as const, href: "/" },
   { key: "about" as const, href: "/about" },
   { key: "expertise" as const, href: "/expertise" },
+  { key: "partners" as const, href: "/partners" },
   { key: "locations" as const, href: "/locations" },
   { key: "insights" as const, href: "/insights" },
 ] as const;
@@ -96,10 +99,11 @@ export interface HeroSlide {
   focus: string;
 }
 
+
 export const heroSlides: HeroSlide[] = [
-  { id: "alexLeadership", image: "/SL1.jpg", branch: "alexandria", focus: "center 30%" },
-  { id: "alexExcellence", image: "/SL2.jpg", branch: "alexandria", focus: "center 30%" },
-  { id: "cairoTeam", image: "/T3.jpeg", branch: "cairo", focus: "center 35%" },
+  { id: "alexLeadership", image: "/T3.jpeg", branch: "alexandria", focus: "center top" },
+  { id: "alexExcellence", image: "/SL2-2.jpg", branch: "alexandria", focus: "center top" },
+  { id: "cairoTeam", image: "/SL1-1.jpg", branch: "cairo", focus: "center 20%" },
 ];
 
 // ---------------------------------------------------------------------------
@@ -135,22 +139,33 @@ export const partnershipStats = [
 export interface OfficeData {
   id: "cairo" | "alexandria";
   icon: string;
+  /** Landline for this office */
   phone: string;
+  /** Shared mobile for both offices (same as official WhatsApp) */
+  mobile: string;
   email: string;
-  partner: { name: string; email: string };
   /** Opens Google Maps directions to this office */
   directionsUrl: string;
   /** Google Maps embed URL for the locations page */
   mapEmbedUrl: string;
 }
 
+/** Shared contact partner for both offices — WhatsApp opens the shared mobile. */
+export const contactPartner = {
+  name: "Waled Mounir",
+  whatsappLink: officialContact.whatsapp.link,
+} as const;
+
+const SHARED_MOBILE = officialContact.whatsapp.display;
+const SHARED_EMAIL = officialContact.email;
+
 export const offices: OfficeData[] = [
   {
     id: "cairo",
     icon: "location_on",
-    phone: "+20 3 424 3371",
-    email: "info@wmcpa-eg.com",
-    partner: { name: "Waled Mounir & Mohammed Arafa", email: "info@wmcpa-eg.com" },
+    phone: "+20 2 3827 7021",
+    mobile: SHARED_MOBILE,
+    email: SHARED_EMAIL,
     directionsUrl:
       "https://www.google.com/maps/dir/?api=1&destination=Arkan%20Plaza%2C%20El%20Sheikh%20Zayed%2C%20Giza%2C%20Egypt&travelmode=driving",
     mapEmbedUrl:
@@ -159,9 +174,9 @@ export const offices: OfficeData[] = [
   {
     id: "alexandria",
     icon: "location_city",
-    phone: "+2 011 1117 4241",
-    email: "info@wmcpa-eg.com",
-    partner: { name: "Waled Mounir & Mohammed Arafa", email: "info@wmcpa-eg.com" },
+    phone: "+20 3 424 3371",
+    mobile: SHARED_MOBILE,
+    email: SHARED_EMAIL,
     directionsUrl:
       "https://www.google.com/maps/dir/?api=1&destination=38%20El-Prince%20Ibrahim%20Street%2C%20Ezbet%20Saad%2C%20Smouha%2C%20Alexandria%2C%20Egypt&travelmode=driving",
     mapEmbedUrl:
@@ -251,6 +266,27 @@ export const foundingPartners = [
     icon: "fact_check",
   },
 ];
+
+// ---------------------------------------------------------------------------
+// Success partners (client logos in /public/partners)
+// ---------------------------------------------------------------------------
+
+/** Numbered logo files currently in /public/partners */
+export const SUCCESS_PARTNERS_LOGO_COUNT = 26;
+
+/** Approximate total success partners (logos shown are a featured selection) */
+export const SUCCESS_PARTNERS_TOTAL = 50;
+
+export const successPartnerLogos = Array.from(
+  { length: SUCCESS_PARTNERS_LOGO_COUNT },
+  (_, index) => ({
+    id: index + 1,
+    src: `/partners/${index + 1}.jpeg`,
+  }),
+);
+
+/** Subset used in the home / expertise teaser marquees */
+export const successPartnersTeaserLogos = successPartnerLogos;
 
 // ---------------------------------------------------------------------------
 // Expertise page — publications & professional presence

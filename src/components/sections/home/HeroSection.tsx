@@ -72,7 +72,8 @@ export function HeroSection() {
           transition={{ duration: 1.1, ease: EASE }}
         >
           <motion.div
-            className="absolute inset-0"
+            /* On large screens, nudge the photo down so faces clear the fixed header */
+            className="absolute inset-0 lg:top-[7%] lg:h-[110%]"
             initial={{ scale: 1.08 }}
             animate={{ scale: 1.18 }}
             transition={{ duration: AUTO_ADVANCE_MS / 1000 + 1.2, ease: "linear" }}

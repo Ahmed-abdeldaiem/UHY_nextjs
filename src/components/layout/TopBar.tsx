@@ -3,13 +3,21 @@ import { MaterialIcon } from "@/components/ui/MaterialIcon";
 import { BrandIcon } from "@/components/ui/BrandIcon";
 
 /**
- * Slim utility bar above the main navigation — official email + WhatsApp + brand mark.
+ * Slim utility bar above the main navigation — brand mark + official email + WhatsApp.
+ * Layout is locked LTR in both locales: logo left, contacts right.
  */
 export function TopBar() {
   return (
-    <div className="bg-[#3D1A5C] text-on-primary border-b border-on-primary/10">
-      <div className="flex items-center justify-between gap-2 sm:gap-4 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto min-h-9 md:h-10 py-1 md:py-0">
-        <div className="flex items-center gap-3 sm:gap-4 md:gap-6 min-w-0 flex-1 overflow-x-auto scrollbar-none">
+    <div className="bg-[#3D1A5C] py-1 text-on-primary border-b border-on-primary/10">
+      <div
+        dir="ltr"
+        className="flex items-center justify-between gap-2 sm:gap-4 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto min-h-9 md:h-10 py-1 md:py-0"
+      >
+        <span className="shrink-0">
+          <img src="/bokslogo.png" alt="Brand" className="h-9" />
+        </span>
+
+        <div className="flex items-center gap-3 sm:gap-4 md:gap-6 min-w-0 overflow-x-auto scrollbar-none">
           {/* Official email */}
           <a
             href={`mailto:${officialContact.email}`}
@@ -35,10 +43,6 @@ export function TopBar() {
             </span>
           </a>
         </div>
-
-        <span className="shrink-0">
-          <img src="/bokslogo.png" alt="Brand" className="h-6" />
-        </span>
       </div>
     </div>
   );

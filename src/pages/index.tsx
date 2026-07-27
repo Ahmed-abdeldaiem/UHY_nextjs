@@ -4,6 +4,7 @@ import { PillarsSection } from "@/components/sections/home/PillarsSection";
 import { PartnershipSection } from "@/components/sections/home/PartnershipSection";
 import { OfficeLocationsSection } from "@/components/sections/home/OfficeLocationsSection";
 import { TeamStrengthSection } from "@/components/sections/home/TeamStrengthSection";
+import { SuccessPartnersTeaser } from "@/components/sections/shared/SuccessPartnersTeaser";
 import { ServicesSection } from "@/components/sections/home/ServicesSection";
 import { SectorFocusSection } from "@/components/sections/home/SectorFocusSection";
 import { InsightsSection } from "@/components/sections/home/InsightsSection";
@@ -25,6 +26,7 @@ export default function HomePage() {
       <HeroSection />
       <PillarsSection />
       <PartnershipSection />
+      <SuccessPartnersTeaser />
       <OfficeLocationsSection />
       <TeamStrengthSection />
       <ServicesSection />

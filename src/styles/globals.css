@@ -223,6 +223,37 @@ html[dir="rtl"] body {
   animation: fade-in-up 0.8s ease-out forwards;
 }
 
+@keyframes partners-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.partners-marquee-track {
+  animation: partners-marquee 48s linear infinite;
+  width: max-content;
+}
+
+.partners-marquee-track-reverse {
+  animation: partners-marquee 56s linear infinite reverse;
+  width: max-content;
+}
+
+.partners-marquee-pause:hover .partners-marquee-track,
+.partners-marquee-pause:hover .partners-marquee-track-reverse {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partners-marquee-track,
+  .partners-marquee-track-reverse {
+    animation: none;
+  }
+}
+
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }

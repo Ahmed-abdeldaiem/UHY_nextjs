@@ -1,15 +1,16 @@
 import Link from "next/link";
 import { motion } from "motion/react";
-import { offices } from "@/data/home";
+import { offices, officialContact } from "@/data/home";
 import { useLanguage } from "@/context/LanguageContext";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
+import { ContactPartnerCard } from "@/components/ui/ContactPartnerCard";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 
 /**
  * Office location cards — Cairo & Alexandria.
- * Alexandria card displays logo_alex.jpg instead of a Material icon.
+ * Shared contact partner sits centered below both cards.
  */
 export function OfficeLocationsSection() {
   const { t } = useLanguage();
@@ -64,13 +65,35 @@ export function OfficeLocationsSection() {
                   </div>
                   <div className="flex gap-3">
                     <MaterialIcon name="call" className="text-secondary text-sm" />
-                    <a
-                      href={`tel:${office.phone.replace(/\s/g, "")}`}
-                      className="text-on-surface-variant text-sm hover:text-primary transition-colors"
-                      dir="ltr"
-                    >
-                      {office.phone}
-                    </a>
+                    <div className="min-w-0">
+                      <p className="text-[10px] uppercase tracking-wider text-on-surface-variant/70 mb-0.5">
+                        {t.offices.phoneLabel}
+                      </p>
+                      <a
+                        href={`tel:${office.phone.replace(/\s/g, "")}`}
+                        className="text-on-surface-variant text-sm hover:text-primary transition-colors"
+                        dir="ltr"
+                      >
+                        {office.phone}
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <MaterialIcon name="smartphone" className="text-secondary text-sm" />
+                    <div className="min-w-0">
+                      <p className="text-[10px] uppercase tracking-wider text-on-surface-variant/70 mb-0.5">
+                        {t.offices.mobileLabel}
+                      </p>
+                      <a
+                        href={officialContact.whatsapp.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-on-surface-variant text-sm hover:text-primary transition-colors"
+                        dir="ltr"
+                      >
+                        {office.mobile}
+                      </a>
+                    </div>
                   </div>
                   <div className="flex gap-3">
                     <MaterialIcon name="mail" className="text-secondary text-sm" />
@@ -80,14 +103,6 @@ export function OfficeLocationsSection() {
                     >
                       {office.email}
                     </a>
-                  </div>
-
-                  <div className="mt-4 p-4 bg-surface-white rounded-lg border border-outline-variant">
-                    <p className="text-xs font-bold text-primary uppercase tracking-widest mb-1">
-                      {t.offices.contactPartner}
-                    </p>
-                    <p className="text-sm font-semibold">{office.partner.name}</p>
-                    <p className="text-xs text-on-surface-variant">{office.partner.email}</p>
                   </div>
                 </div>
 
@@ -104,6 +119,8 @@ export function OfficeLocationsSection() {
             );
           })}
         </motion.div>
+
+        <ContactPartnerCard className="mt-10" />
       </Container>
     </section>
   );
