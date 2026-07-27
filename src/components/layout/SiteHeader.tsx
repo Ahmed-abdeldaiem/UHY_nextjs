@@ -71,7 +71,7 @@ export function SiteHeader() {
         }`}
       >
         <div className="flex justify-between items-center w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop gap-3">
-          <div className="flex items-center gap-6 md:gap-8 min-w-0">
+          <div className="flex items-center gap-6 lg:gap-8 min-w-0">
             <Link href="/" className="flex items-center shrink-0">
               <motion.div
                 animate={{ scale: isScrolled ? 0.9 : 1 }}
@@ -82,13 +82,14 @@ export function SiteHeader() {
                   alt={t.meta.siteName}
                   width={200}
                   height={200}
-                  className="h-8 sm:h-9 md:h-15 w-auto object-contain"
+                  className="h-8 sm:h-9 lg:h-15 w-auto object-contain"
                   priority
                 />
               </motion.div>
             </Link>
 
-            <div className="hidden md:flex items-center gap-1.5 lg:gap-2">
+            {/* Desktop nav only from lg — md/tablet widths can't fit all links without overlap */}
+            <div className="hidden lg:flex items-center gap-2">
               {navLinks.map((link) => (
                 <span key={link.key} className="contents">
                   <Link
@@ -112,14 +113,14 @@ export function SiteHeader() {
           <div className="flex items-center gap-2 shrink-0">
             <Link
               href="/contact"
-              className="md:hidden px-3 py-1.5 text-primary border border-primary/30 rounded-lg font-label-sm text-xs hover:bg-primary hover:text-on-primary transition-all active:scale-95 whitespace-nowrap"
+              className="lg:hidden px-3 py-1.5 text-primary border border-primary/30 rounded-lg font-label-sm text-xs hover:bg-primary hover:text-on-primary transition-all active:scale-95 whitespace-nowrap"
             >
               {t.nav.getInTouch}
             </Link>
             <MobileNavMenu />
             <Link
               href="/contact"
-              className="hidden md:inline-flex px-6 py-2 bg-primary text-on-primary rounded-lg font-label-sm text-label-sm hover:brightness-110 shadow-sm transition-all active:scale-95"
+              className="hidden lg:inline-flex px-6 py-2 bg-primary text-on-primary rounded-lg font-label-sm text-label-sm hover:brightness-110 shadow-sm transition-all active:scale-95"
             >
               {t.nav.getInTouch}
             </Link>

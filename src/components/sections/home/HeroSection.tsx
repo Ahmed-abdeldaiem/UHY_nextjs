@@ -56,7 +56,7 @@ export function HeroSection() {
 
   return (
     <section
-      className="relative w-full overflow-hidden -mt-[var(--site-header-height)] h-[640px] sm:h-[720px] lg:h-[840px] bg-primary"
+      className="relative w-full overflow-hidden -mt-[var(--site-header-height)] h-[680px] sm:h-[720px] lg:h-[840px] bg-primary"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       aria-roledescription="carousel"
@@ -95,77 +95,80 @@ export function HeroSection() {
       <div className={`absolute inset-0 z-[1] hero-gradient ${isRtl ? "-scale-x-100" : ""}`} />
       <div className="absolute inset-0 z-[1] bg-gradient-to-t from-primary/85 via-primary/20 to-transparent" />
 
-      {/* Content */}
-      <Container className="relative z-10 h-full flex flex-col justify-center pt-[var(--site-header-height)] pb-24">
-        <div className="max-w-2xl">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={active.id}
-              initial={{ opacity: 0, x: contentX }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -contentX }}
-              transition={{ duration: 0.6, ease: EASE }}
-            >
-              <span className="inline-flex items-center gap-2.5 mb-5 px-4 py-1.5 rounded-full bg-surface-white/15 backdrop-blur-sm border border-surface-white/25 text-surface-white text-label-sm font-label-sm">
-                <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-secondary-fixed opacity-75 animate-ping" />
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-secondary-fixed shadow-[0_0_8px_2px_rgba(255,145,0,0.7)]" />
+      {/*
+        Content + controls share one column so carousel chrome never overlaps CTAs.
+        Bottom padding clears the PillarsSection (-mt-16) overlap.
+        End padding on controls clears the floating WhatsApp / email rail on mobile.
+      */}
+      <Container className="relative z-10 h-full flex flex-col pt-[var(--site-header-height)] pb-16">
+        <div className="flex-1 flex flex-col justify-end sm:justify-center min-h-0 pb-5 sm:pb-6">
+          <div className="max-w-2xl w-full">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active.id}
+                initial={{ opacity: 0, x: contentX }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -contentX }}
+                transition={{ duration: 0.6, ease: EASE }}
+              >
+                <span className="inline-flex items-center gap-2.5 mb-3 sm:mb-5 px-3.5 sm:px-4 py-1.5 rounded-full bg-surface-white/15 backdrop-blur-sm border border-surface-white/25 text-surface-white text-label-sm font-label-sm">
+                  <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-secondary-fixed opacity-75 animate-ping" />
+                    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-secondary-fixed shadow-[0_0_8px_2px_rgba(255,145,0,0.7)]" />
+                  </span>
+                  {slideText.badge}
                 </span>
-                {slideText.badge}
-              </span>
 
-              <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-surface-white mb-5">
-                {slideText.title}
-              </h1>
-              <p className="font-body-lg text-body-lg text-surface-white/90 mb-6 leading-relaxed max-w-xl">
-                {slideText.description}
-              </p>
+                <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-surface-white mb-3 sm:mb-5">
+                  {slideText.title}
+                </h1>
+                <p className="font-body-lg text-body-lg text-surface-white/90 mb-4 sm:mb-6 leading-relaxed max-w-xl">
+                  {slideText.description}
+                </p>
 
-              {/* Branch contact chips */}
-              <div className="flex flex-wrap gap-x-6 gap-y-2 mb-8 text-surface-white/85 text-sm">
-                <a
-                  href={`tel:${activeOffice.phone.replace(/\s/g, "")}`}
-                  className="inline-flex items-center gap-2 hover:text-surface-white transition-colors"
-                >
-                  <MaterialIcon name="call" className="text-base opacity-80" />
-                  <span dir="ltr">{activeOffice.phone}</span>
-                </a>
-                <a
-                  href={`mailto:${activeOffice.email}`}
-                  className="inline-flex items-center gap-2 hover:text-surface-white transition-colors"
-                >
-                  <MaterialIcon name="mail" className="text-base opacity-80" />
-                  {activeOffice.email}
-                </a>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+                {/* Branch contact chips */}
+                <div className="flex flex-wrap gap-x-5 gap-y-2 mb-5 sm:mb-8 text-surface-white/85 text-sm">
+                  <a
+                    href={`tel:${activeOffice.phone.replace(/\s/g, "")}`}
+                    className="inline-flex items-center gap-2 hover:text-surface-white transition-colors"
+                  >
+                    <MaterialIcon name="call" className="text-base opacity-80" />
+                    <span dir="ltr">{activeOffice.phone}</span>
+                  </a>
+                  <a
+                    href={`mailto:${activeOffice.email}`}
+                    className="inline-flex items-center gap-2 hover:text-surface-white transition-colors"
+                  >
+                    <MaterialIcon name="mail" className="text-base opacity-80" />
+                    {activeOffice.email}
+                  </a>
+                </div>
+              </motion.div>
+            </AnimatePresence>
 
-          <div className="flex flex-wrap gap-4">
-            <Link
-              href="/services"
-              className="px-8 py-4 bg-secondary-fixed text-on-secondary-fixed rounded-lg font-label-sm text-label-sm hover:brightness-105 transition-all shadow-lg active:scale-95"
-            >
-              {t.hero.primaryCta}
-            </Link>
-            <Link
-              href="/contact"
-              className="group px-8 py-4 border border-surface-white text-surface-white rounded-lg font-label-sm text-label-sm hover:bg-surface-white/10 transition-all backdrop-blur-sm active:scale-95 inline-flex items-center gap-2"
-            >
-              {t.hero.contactCta}
-              <MaterialIcon
-                name="arrow_forward"
-                className="text-base rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1"
-              />
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <Link
+                href="/services"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 text-center bg-secondary-fixed text-on-secondary-fixed rounded-lg font-label-sm text-label-sm hover:brightness-105 transition-all shadow-lg active:scale-95"
+              >
+                {t.hero.primaryCta}
+              </Link>
+              <Link
+                href="/contact"
+                className="group w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 justify-center border border-surface-white text-surface-white rounded-lg font-label-sm text-label-sm hover:bg-surface-white/10 transition-all backdrop-blur-sm active:scale-95 inline-flex items-center gap-2"
+              >
+                {t.hero.contactCta}
+                <MaterialIcon
+                  name="arrow_forward"
+                  className="text-base rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1"
+                />
+              </Link>
+            </div>
           </div>
         </div>
-      </Container>
 
-      {/* Controls — kept clear of the overlapping section below */}
-      <Container className="absolute inset-x-0 bottom-20 sm:bottom-24 z-20">
-        <div className="flex items-center justify-between gap-4">
-          {/* Dots */}
+        {/* Carousel controls — always below CTAs, clear of floating actions */}
+        <div className="shrink-0 flex items-center justify-between gap-3 pe-16 sm:pe-0">
           <div className="flex items-center gap-2.5" role="tablist">
             {heroSlides.map((slide, i) => {
               const isActive = i === index;
@@ -187,23 +190,22 @@ export function HeroSection() {
             })}
           </div>
 
-          {/* Arrows */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3">
             <button
               type="button"
               onClick={() => paginate(-1)}
               aria-label={t.hero.previousSlide}
-              className="inline-flex items-center justify-center w-11 h-11 rounded-full border border-surface-white/40 text-surface-white hover:bg-surface-white/15 backdrop-blur-sm transition-all active:scale-95"
+              className="inline-flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-surface-white/40 text-surface-white hover:bg-surface-white/15 backdrop-blur-sm transition-all active:scale-95"
             >
-              <MaterialIcon name={prevIcon} className="text-2xl" />
+              <MaterialIcon name={prevIcon} className="text-xl sm:text-2xl" />
             </button>
             <button
               type="button"
               onClick={() => paginate(1)}
               aria-label={t.hero.nextSlide}
-              className="inline-flex items-center justify-center w-11 h-11 rounded-full border border-surface-white/40 text-surface-white hover:bg-surface-white/15 backdrop-blur-sm transition-all active:scale-95"
+              className="inline-flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-surface-white/40 text-surface-white hover:bg-surface-white/15 backdrop-blur-sm transition-all active:scale-95"
             >
-              <MaterialIcon name={nextIcon} className="text-2xl" />
+              <MaterialIcon name={nextIcon} className="text-xl sm:text-2xl" />
             </button>
           </div>
         </div>
