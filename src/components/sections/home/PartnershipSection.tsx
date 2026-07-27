@@ -22,9 +22,11 @@ export function PartnershipSection() {
             <h2 className="font-headline-lg text-headline-lg text-primary mb-6">
               {t.partnership.title}
             </h2>
-            <div className="space-y-4 text-on-surface-variant font-body-md leading-relaxed">
+            <div className="space-y-5 text-on-surface-variant font-body-md leading-relaxed">
               <p>{t.partnership.paragraph1}</p>
-              <p>{t.partnership.paragraph2}</p>
+              <p className="border-s-2 border-secondary-fixed ps-4 text-primary/90 font-medium">
+                {t.partnership.paragraph2}
+              </p>
             </div>
 
             <div className="mt-8 pt-8 border-t border-outline-variant flex gap-8">
@@ -56,18 +58,17 @@ export function PartnershipSection() {
                 alt={t.partnership.imageAlt}
                 width={600}
                 height={600}
-                className="rounded-xl w-full h-auto grayscale hover:grayscale-0 transition-all duration-700"
+                className="rounded-xl w-full h-auto"
               />
             </div>
             <motion.div
               {...fadeInUp}
               transition={{ ...fadeInUp.transition, delay: 0.3 }}
-              className="absolute -bottom-6 -end-6 bg-secondary-fixed text-on-secondary-fixed p-6 rounded-xl shadow-lg max-w-[200px]"
+              className="absolute -bottom-6 -end-6 bg-secondary-fixed text-on-secondary-fixed p-5 sm:p-6 rounded-xl shadow-lg max-w-[min(17rem,calc(100%-1.5rem))]"
             >
-              <p className="font-label-sm text-sm font-bold uppercase mb-1">
+              <p className="font-label-sm text-sm font-bold leading-snug">
                 {t.partnership.badgeTitle}
               </p>
-              <p className="text-xs leading-tight">{t.partnership.badgeDescription}</p>
             </motion.div>
           </motion.div>
         </div>

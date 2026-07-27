@@ -82,7 +82,7 @@ export function SiteHeader() {
                   alt={t.meta.siteName}
                   width={200}
                   height={200}
-                  className="h-8 sm:h-9 lg:h-15 w-auto object-contain"
+                  className="h-12 sm:h-14 lg:h-[4.5rem] w-auto object-contain"
                   priority
                 />
               </motion.div>

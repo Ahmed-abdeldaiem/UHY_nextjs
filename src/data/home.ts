@@ -124,8 +124,8 @@ export const partnershipImage = {
 };
 
 export const partnershipStats = [
-  { value: "235", key: "globalOffices" as const },
-  { value: "75", key: "countries" as const },
+  { value: "70+", key: "memberFirms" as const },
+  { value: "50+", key: "countries" as const },
 ];
 
 // ---------------------------------------------------------------------------

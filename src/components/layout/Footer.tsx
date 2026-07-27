@@ -122,9 +122,9 @@ export function Footer() {
             <Image
               src={assets.logos.footer}
               alt={t.meta.siteName}
-              width={200}
-              height={80}
-              className="h-16 w-auto object-contain mb-6"
+              width={280}
+              height={112}
+              className="h-20 sm:h-24 w-auto object-contain mb-6"
             />
             <p className="font-body-md text-body-md text-surface-white/85 leading-relaxed mb-8 max-w-sm">
               {t.footer.tagline}

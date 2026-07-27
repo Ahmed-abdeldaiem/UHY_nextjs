@@ -330,15 +330,14 @@ export const translations = {
     },
     partnership: {
       eyebrow: "Global Impact, Local Presence",
-      title: "A Partnership of Success and Excellence with BOKS International",
+      title: "An accredited independent member of BOKS International",
       paragraph1:
-        "Being part of the distinguished BOKS International network allows us to provide professional integration that transcends borders. Our clients benefit from a global standard of excellence combined with deep-rooted local expertise.",
+        "An independent member of BOKS International, a top 20 global alliance of expert firms with more than 70 quality-assured member firms in over 50 countries around the world. With a rapidly growing global presence, their cross-border service offering facilitates the international operations of businesses of all sizes and ambitions. Supporting firm growth and development, BOKS International is the global alliance of choice offering clients fast and effective access to quality-assured professionals around the globe.",
       paragraph2:
-        "We are proud to be a trusted member of the global network, consistently delivering high-impact solutions that drive the growth of organizations and businesses on the global stage.",
-      globalOffices: "Offices Worldwide",
-      countries: "Countries Represented",
-      badgeTitle: "Global Member",
-      badgeDescription: "Recognized for excellence within the BOKS International network.",
+        "Supporting firm growth and development, we are the global alliance of choice offering clients fast and effective access to professionals around the globe.",
+      memberFirms: "Member Firms",
+      countries: "Countries",
+      badgeTitle: "A Top 10 Global Alliance of Professional Accountancy & Law Firms",
       imageAlt: "A professional team meeting in a high-end Cairo office overlooking the Nile.",
     },
     offices: {
@@ -1463,15 +1462,14 @@ export const translations = {
     },
     partnership: {
       eyebrow: "تأثير عالمي، حضور محلي",
-      title: "شراكة نجاح وتميز مع BOKS International",
+      title: "عضو معتمد ومستقل في BOKS International",
       paragraph1:
-        "انضمامنا إلى شبكة BOKS International المتميزة يتيح لنا تقديم تكامل مهني يتجاوز الحدود. يستفيد عملاؤنا من معيار عالمي للتميز مع خبرة محلية راسخة.",
+        "عضو مستقل في BOKS International، أحد أكبر 20 تحالفاً عالمياً للمكاتب المتخصصة، يضم أكثر من 70 مكتباً عضواً مضمون الجودة في أكثر من 50 دولة حول العالم. ومع حضور عالمي سريع النمو، تسهّل خدماتهم العابرة للحدود العمليات الدولية للشركات بمختلف أحجامها وطموحاتها. ودعماً لنمو المكاتب وتطورها، تُعدّ BOKS International التحالف العالمي المفضل الذي يتيح للعملاء وصولاً سريعاً وفعّالاً إلى مهنيين مضمونين بالجودة حول العالم.",
       paragraph2:
-        "نفخر بكوننا عضواً موثوقاً في الشبكة العالمية، نقدم باستمرار حلولاً عالية التأثير تدفع نمو المؤسسات والشركات على الساحة العالمية.",
-      globalOffices: "مكاتب حول العالم",
-      countries: "دولة ممثلة",
-      badgeTitle: "عضو عالمي",
-      badgeDescription: "معترف بها للتميز ضمن شبكة BOKS International.",
+        "دعماً لنمو المكاتب وتطورها، نحن التحالف العالمي المفضل الذي يتيح للعملاء وصولاً سريعاً وفعّالاً إلى مهنيين حول العالم.",
+      memberFirms: "مكاتب أعضاء",
+      countries: "دول",
+      badgeTitle: "أحد أكبر 10 تحالفات عالمية لمكاتب المحاسبة والقانون المهنية",
       imageAlt: "اجتماع فريق مهني في مكتب فاخر بالقاهرة يطل على النيل.",
     },
     offices: {
