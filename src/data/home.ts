@@ -268,25 +268,54 @@ export const foundingPartners = [
 ];
 
 // ---------------------------------------------------------------------------
-// Success partners (client logos in /public/partners)
+// Success partners (client logos)
 // ---------------------------------------------------------------------------
 
-/** Numbered logo files currently in /public/partners */
-export const SUCCESS_PARTNERS_LOGO_COUNT = 26;
+/**
+ * Featured success-partner logos — single source of truth for:
+ *   • Home + Expertise teaser (`SuccessPartnersTeaser`)
+ *   • Dedicated Partners page (`/partners`)
+ *
+ * 👉 To add / replace / remove a logo: edit this array only.
+ *    - `id`   → stable key (any unique string)
+ *    - `src`  → path under /public (any format: .jpeg .png .webp .svg …)
+ *    - `alt`  → optional; falls back to the generic i18n label + id
+ */
+export interface SuccessPartnerLogo {
+  id: string;
+  src: string;
+  alt?: string;
+}
 
-/** Approximate total success partners (logos shown are a featured selection) */
+export const successPartnerLogos: SuccessPartnerLogo[] = [
+  { id: "1", src: "/partners/1-1.jpeg" },
+  { id: "2", src: "/partners/2-1.jpeg" },
+  { id: "3", src: "/partners/3-1.jpeg" },
+  { id: "4", src: "/partners/4-1.jpeg" },
+  { id: "5", src: "/partners/5-1.jpeg" },
+  { id: "6", src: "/partners/6-1.jpeg" },
+  { id: "7", src: "/partners/7-1.jpeg" },
+  { id: "8", src: "/partners/8-1.jpeg" },
+  { id: "10", src: "/partners/10-1.jpeg" },
+  { id: "11", src: "/partners/11-1.jpeg" },
+  { id: "12", src: "/partners/12-1.jpeg" },
+  { id: "13", src: "/partners/13-1.jpeg" },
+  { id: "14", src: "/partners/14-1.jpeg" },
+  { id: "15", src: "/partners/15-1.jpeg" },
+  { id: "16", src: "/partners/16-1.jpeg" },
+  { id: "17", src: "/partners/17-1.jpeg" },
+  { id: "18", src: "/partners/18-1.jpeg" },
+  { id: "19", src: "/partners/19-1.jpeg" },
+  { id: "20", src: "/partners/20-1.jpeg" },
+  { id: "21", src: "/partners/21-1.jpeg" },
+  { id: "22", src: "/partners/22-1.jpeg" },
+  { id: "23", src: "/partners/23-1.jpeg" },
+  { id: "24", src: "/partners/24-1.jpeg" },
+  { id: "25", src: "/partners/25-1.jpeg" },
+];
+
+/** Approximate total success partners (logos above are a featured selection) */
 export const SUCCESS_PARTNERS_TOTAL = 50;
-
-export const successPartnerLogos = Array.from(
-  { length: SUCCESS_PARTNERS_LOGO_COUNT },
-  (_, index) => ({
-    id: index + 1,
-    src: `/partners/${index + 1}.jpeg`,
-  }),
-);
-
-/** Subset used in the home / expertise teaser marquees */
-export const successPartnersTeaserLogos = successPartnerLogos;
 
 // ---------------------------------------------------------------------------
 // Expertise page — publications & professional presence

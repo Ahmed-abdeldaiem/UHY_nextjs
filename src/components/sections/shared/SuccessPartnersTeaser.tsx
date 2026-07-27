@@ -3,14 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
-import { SUCCESS_PARTNERS_TOTAL, successPartnerLogos } from "@/data/home";
+import { SUCCESS_PARTNERS_TOTAL, successPartnerLogos, type SuccessPartnerLogo } from "@/data/home";
 import { useLanguage } from "@/context/LanguageContext";
 import { Container } from "@/components/ui/Container";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
 import { DirectionalArrow } from "@/components/ui/DirectionalArrow";
 
 type MarqueeRowProps = {
-  logos: typeof successPartnerLogos;
+  logos: SuccessPartnerLogo[];
   reverse?: boolean;
   logoAlt: string;
 };
@@ -32,7 +32,7 @@ function MarqueeRow({ logos, reverse = false, logoAlt }: MarqueeRowProps) {
           >
             <Image
               src={logo.src}
-              alt={`${logoAlt} ${logo.id}`}
+              alt={logo.alt ?? `${logoAlt} ${logo.id}`}
               width={160}
               height={72}
               className="max-h-12 sm:max-h-14 w-auto max-w-full object-contain"

@@ -165,7 +165,7 @@ export default function PartnersPage() {
                   />
                   <Image
                     src={logo.src}
-                    alt={`${t.successPartners.logoAlt} ${logo.id}`}
+                    alt={logo.alt ?? `${t.successPartners.logoAlt} ${logo.id}`}
                     width={180}
                     height={90}
                     className="max-h-12 sm:max-h-14 md:max-h-16 w-auto max-w-full object-contain transition-transform duration-500 ease-out group-hover:scale-[1.04]"
