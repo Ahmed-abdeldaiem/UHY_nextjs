@@ -305,12 +305,14 @@ export type ExpertiseStrengthKey = (typeof expertiseStrengths)[number]["key"];
 export type ExpertisePublicationKey =
   | "footballEconomics"
   | "internalAuditCoso"
-  | "corruptionSports";
+  | "corruptionSports"
+  | "auditingFraudCases";
 
 export const expertisePublications: {
   key: ExpertisePublicationKey;
   image: string;
-  href: string;
+  /** External details URL — null means the CTA is disabled */
+  href: string | null;
 }[] = [
   {
     key: "footballEconomics",
@@ -326,6 +328,11 @@ export const expertisePublications: {
     key: "corruptionSports",
     image: "/Li3.jpeg",
     href: "https://www.albatel-research.org/publications/corruption",
+  },
+  {
+    key: "auditingFraudCases",
+    image: "/Li4.jpeg",
+    href: null,
   },
 ];
 
@@ -349,8 +356,25 @@ export const expertiseGalleries: {
   },
   {
     key: "universities",
-    images: ["/college1.jfif", "/college2.jfif", "/college3.jfif"],
+    images: ["/college1.jfif", "/college2.jfif", "/college3.jfif", "/college4.jpeg"],
   },
+];
+
+/**
+ * Field moments with success partners — captions live under
+ * `t.expertisePage.partnerMoments.captions[key]` when `captionKey` is set.
+ */
+export const expertisePartnerMoments: {
+  src: string;
+  captionKey?: "ahly" | "arkas" | "rastamani";
+}[] = [
+  { src: "/p1.jpeg", captionKey: "ahly" },
+  { src: "/p2.jpeg", captionKey: "arkas" },
+  { src: "/p3.jpeg", captionKey: "rastamani" },
+  { src: "/p4.jpeg" },
+  { src: "/p5.jpeg" },
+  { src: "/p6.jpeg" },
+  { src: "/p7.jpeg" },
 ];
 
 // ---------------------------------------------------------------------------

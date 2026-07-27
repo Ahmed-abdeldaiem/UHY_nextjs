@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import {
   assets,
   expertiseGalleries,
+  expertisePartnerMoments,
   expertisePublications,
   expertiseStrengths,
 } from "@/data/home";
@@ -163,7 +164,8 @@ export default function ExpertisePage() {
           className="pointer-events-none absolute -top-24 -start-24 h-80 w-80 bg-contain bg-no-repeat opacity-[0.05]"
           style={{ backgroundImage: "url('/B2.png')" }}
         />
-        <Container className="relative z-10">
+        {/* Wider than site Container so four book cards sit more comfortably side-by-side */}
+        <div className="relative z-10 mx-auto w-full max-w-[96rem] px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8">
           <motion.div {...fadeInUp} className="max-w-3xl mx-auto text-center mb-14">
             <span className="text-secondary font-label-sm text-label-sm uppercase tracking-[0.2em] mb-4 block">
               {e.publications.eyebrow}
@@ -181,10 +183,11 @@ export default function ExpertisePage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
-            className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6"
           >
             {expertisePublications.map((pub) => {
               const item = e.publications.items[pub.key];
+              const hasLink = Boolean(pub.href);
               return (
                 <motion.article
                   key={pub.key}
@@ -197,7 +200,7 @@ export default function ExpertisePage() {
                       alt={item.title}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      sizes="(max-width: 1024px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#2a1040]/70 via-transparent to-transparent" />
                     <span className="absolute top-4 start-4 inline-flex items-center gap-2 rounded-full bg-surface-white/15 backdrop-blur-sm border border-surface-white/25 text-surface-white px-3 py-1.5 text-xs font-label-sm uppercase tracking-wide">
@@ -220,21 +223,31 @@ export default function ExpertisePage() {
                     <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed flex-grow mb-6">
                       {item.description}
                     </p>
-                    <a
-                      href={pub.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm group-hover:gap-3 transition-all"
-                    >
-                      {e.publications.viewDetails}
-                      <DirectionalArrow className="text-base" />
-                    </a>
+                    {hasLink ? (
+                      <a
+                        href={pub.href!}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm group-hover:gap-3 transition-all"
+                      >
+                        {e.publications.viewDetails}
+                        <DirectionalArrow className="text-base" />
+                      </a>
+                    ) : (
+                      <span
+                        aria-disabled="true"
+                        className="inline-flex items-center gap-2 text-on-surface-variant/45 font-label-sm text-label-sm cursor-not-allowed select-none"
+                      >
+                        {e.publications.viewDetailsSoon}
+                        <MaterialIcon name="schedule" className="text-base opacity-70" />
+                      </span>
+                    )}
                   </div>
                 </motion.article>
               );
             })}
           </motion.div>
-        </Container>
+        </div>
       </section>
 
       {/* ------------------------------------------------------------------ */}
@@ -320,6 +333,99 @@ export default function ExpertisePage() {
               );
             })}
           </div>
+        </Container>
+      </section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* With our success partners                                           */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="py-section-gap bg-background relative overflow-hidden">
+        <div
+          className="pointer-events-none absolute -bottom-20 -end-16 h-72 w-72 bg-contain bg-no-repeat opacity-[0.05]"
+          style={{ backgroundImage: "url('/B1.png')" }}
+        />
+        <Container className="relative z-10">
+          <motion.div {...fadeInUp} className="max-w-3xl mx-auto text-center mb-12 md:mb-14">
+            <span className="text-secondary font-label-sm text-label-sm uppercase tracking-[0.2em] mb-4 block">
+              {e.partnerMoments.eyebrow}
+            </span>
+            <h2 className="font-headline-lg text-headline-lg text-primary mb-4">
+              {e.partnerMoments.title}
+            </h2>
+            <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              {e.partnerMoments.subtitle}
+            </p>
+          </motion.div>
+
+          {/* Featured moments with captions */}
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mb-4 md:mb-5"
+          >
+            {expertisePartnerMoments
+              .filter((shot) => shot.captionKey)
+              .map((shot) => {
+                const caption = e.partnerMoments.captions[shot.captionKey!];
+                return (
+                  <motion.figure
+                    key={shot.src}
+                    variants={staggerItem}
+                    className="group relative overflow-hidden rounded-2xl border border-outline-variant bg-surface-white shadow-sm"
+                  >
+                    <div className="relative aspect-[4/3]">
+                      <Image
+                        src={shot.src}
+                        alt={caption}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#2a1040]/85 via-[#2a1040]/25 to-transparent" />
+                      <figcaption className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+                        <span className="inline-flex items-center gap-2 mb-2">
+                          <span className="h-px w-6 bg-secondary-fixed" />
+                          <MaterialIcon name="handshake" className="text-secondary-fixed text-base" />
+                        </span>
+                        <p className="text-sm sm:text-base font-medium text-surface-white leading-snug">
+                          {caption}
+                        </p>
+                      </figcaption>
+                    </div>
+                  </motion.figure>
+                );
+              })}
+          </motion.div>
+
+          {/* Additional field photos */}
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4"
+          >
+            {expertisePartnerMoments
+              .filter((shot) => !shot.captionKey)
+              .map((shot, index) => (
+                <motion.div
+                  key={shot.src}
+                  variants={staggerItem}
+                  className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-outline-variant bg-surface-white shadow-sm"
+                >
+                  <Image
+                    src={shot.src}
+                    alt={`${e.partnerMoments.title} — ${index + 4}`}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#3D1A5C]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </motion.div>
+              ))}
+          </motion.div>
         </Container>
       </section>
 

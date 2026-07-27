@@ -468,6 +468,7 @@ export const translations = {
         subtitle:
           "Our founding partners co-authored and professionally translated some of the region's most significant references in sports economics, internal control and governance.",
         viewDetails: "View publication details",
+        viewDetailsSoon: "Details coming soon",
         authorsLabel: "Authors",
         translatorsLabel: "Professional translation",
         items: {
@@ -495,6 +496,14 @@ export const translations = {
             description:
               "A comprehensive Arabic reference on corruption and fraud in sport — combining theoretical depth with case studies and legal–control tools for response. Issued under the official patronage of the Batel Abdullah Albatel Foundation for Research & Studies.",
           },
+          auditingFraudCases: {
+            badge: "Professional Translation",
+            title: "Auditing & Fraud Cases — Issues and Investigations",
+            subtitle: "Major cases of earnings manipulation and embezzlement",
+            credit: "Translated by: Muhammad Arafa & Waled Mounir — Author: Michael C. Knapp",
+            description:
+              "Major financial scandals that expose control failures and offer practical lessons on fraud, earnings manipulation, and the vital role of transparency and oversight.",
+          },
         },
       },
       presence: {
@@ -519,6 +528,17 @@ export const translations = {
             title: "Universities & Professional Conferences",
             description: "Engagement with accredited universities and specialist conferences.",
           },
+        },
+      },
+      partnerMoments: {
+        eyebrow: "In the Field",
+        title: "With Our Success Partners",
+        subtitle:
+          "Moments from our work alongside leading institutions and business figures — relationships built on trust, delivery and shared ambition.",
+        captions: {
+          ahly: "With the CFO of Al Ahly Sporting Club, Egypt",
+          arkas: "With Arkas Egypt",
+          rastamani: "With Emirati businessman Abdulrahman Al-Rastamani",
         },
       },
     },
@@ -1651,6 +1671,7 @@ export const translations = {
         subtitle:
           "شارك شريكاؤنا المؤسسان في تأليف وتعريب بعض أهم المراجع الإقليمية في اقتصاديات الرياضة والرقابة الداخلية والحوكمة.",
         viewDetails: "عرض تفاصيل الإصدار",
+        viewDetailsSoon: "التفاصيل قريباً",
         authorsLabel: "تأليف",
         translatorsLabel: "تعريب مهني",
         items: {
@@ -1678,6 +1699,14 @@ export const translations = {
             description:
               "مرجع عربي متكامل في الفساد والاحتيال بقطاع الرياضة — يجمع العمق النظري بدراسات الحالة والأدوات القانونية والرقابية للمواجهة. صادر برعاية رسمية من مؤسسة باتل عبدالله الباتل للبحوث والدراسات.",
           },
+          auditingFraudCases: {
+            badge: "تعريب مهني",
+            title: "حالات المراجعة والاحتيال — قضايا وتحقيقات",
+            subtitle: "حالات كبرى للتلاعب في الأرباح والاختلاسات",
+            credit: "تعريب: محمد عرفة ووليد منير — تأليف: مايكل سي. كناب",
+            description:
+              "فضائح مالية كبرى تكشف ثغرات الرقابة وتقدّم دروساً عملية حول الاحتيال والتلاعب بالأرباح وأهمية الشفافية والمراقبة الفعالة.",
+          },
         },
       },
       presence: {
@@ -1702,6 +1731,17 @@ export const translations = {
             title: "الجامعات والمؤتمرات المهنية",
             description: "مشاركة في الجامعات المعتمدة والمؤتمرات المتخصصة.",
           },
+        },
+      },
+      partnerMoments: {
+        eyebrow: "من الميدان",
+        title: "مع شركاء نجاحنا",
+        subtitle:
+          "لحظات من عملنا إلى جانب مؤسسات وشخصيات أعمال رائدة — علاقات مبنية على الثقة والإنجاز والطموح المشترك.",
+        captions: {
+          ahly: "مع مدير القطاع المالي بالنادي الأهلي المصري",
+          arkas: "مع شركة أركاس مصر",
+          rastamani: "مع رجل الأعمال الإماراتي عبدالرحمن الرستماني",
         },
       },
     },

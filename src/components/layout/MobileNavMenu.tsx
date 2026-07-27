@@ -125,7 +125,7 @@ export function MobileNavMenu() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[100] bg-inverse-surface/50 backdrop-blur-[2px] lg:hidden"
+            className="fixed inset-0 z-[100] bg-inverse-surface/50 backdrop-blur-[2px] xl:hidden"
             onClick={close}
           />
 
@@ -134,7 +134,7 @@ export function MobileNavMenu() {
             animate={{ x: 0 }}
             exit={{ x: slideOffset }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-y-0 end-0 z-[101] w-[min(20rem,85vw)] max-w-full bg-surface-white shadow-2xl flex flex-col lg:hidden"
+            className="fixed inset-y-0 end-0 z-[101] w-[min(20rem,85vw)] max-w-full bg-surface-white shadow-2xl flex flex-col xl:hidden"
             style={{ paddingTop: "env(safe-area-inset-top)", paddingBottom: "env(safe-area-inset-bottom)" }}
           >
             <div className="flex items-center justify-between px-5 py-4 border-b border-outline-variant shrink-0">
@@ -197,7 +197,7 @@ export function MobileNavMenu() {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-outline-variant/60 text-on-surface-variant hover:text-primary hover:border-primary/30 transition-colors active:scale-95"
+        className="xl:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-outline-variant/60 text-on-surface-variant hover:text-primary hover:border-primary/30 transition-colors active:scale-95"
         aria-label={t.nav.openMenu}
         aria-expanded={isOpen}
       >
