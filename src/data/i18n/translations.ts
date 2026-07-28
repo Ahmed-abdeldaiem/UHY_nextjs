@@ -3,6 +3,7 @@
  * ---------------------------------------------------
  * ALL user-facing text lives here. Components read via useLanguage().t
  * To add a new string: add it to both `en` and `ar` objects under the same key.
+ * developed by ahmed abdeldaiem
  */
 
 export type Locale = "en" | "ar";
