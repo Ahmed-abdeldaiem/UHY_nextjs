@@ -102,8 +102,6 @@ function OfficeColumn({ title, address, phone, delay }: OfficeColumnProps) {
  */
 export function Footer() {
   const { t } = useLanguage();
-  const cairoOffice = offices.find((o) => o.id === "cairo")!;
-  const alexOffice = offices.find((o) => o.id === "alexandria")!;
 
   return (
     <footer className="relative w-full overflow-hidden text-surface-white">
@@ -153,20 +151,21 @@ export function Footer() {
             <SocialRow links={socialLinks} label={t.footer.followUs} />
           </motion.div>
 
-          {/* Offices (address + phone per branch) */}
+          {/* Offices — Alexandria (HQ) first, then Cairo */}
           <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-x-gutter gap-y-10">
-            <OfficeColumn
-              title={t.footer.cairoOffice}
-              address={t.offices.cairo.address}
-              phone={cairoOffice.phone}
-              delay={0.1}
-            />
-            <OfficeColumn
-              title={t.footer.alexandriaOffice}
-              address={t.offices.alexandria.address}
-              phone={alexOffice.phone}
-              delay={0.2}
-            />
+            {offices.map((office, index) => (
+              <OfficeColumn
+                key={office.id}
+                title={
+                  office.id === "alexandria"
+                    ? t.footer.alexandriaOffice
+                    : t.footer.cairoOffice
+                }
+                address={t.offices[office.id].address}
+                phone={office.phone}
+                delay={0.1 + index * 0.1}
+              />
+            ))}
           </div>
 
           {/* Quick links */}

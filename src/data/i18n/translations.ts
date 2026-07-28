@@ -681,6 +681,7 @@ export const translations = {
               "Certified Trainer, International Finance Corporation (IFC) – World Bank Group",
               "Member, Arab Federation of Accountants & Auditors (M.AFAA)",
               "Member, U.S. National Association of Tax Professionals (M.NATP)",
+              "Treasurer, Horse Owners Club",
             ],
           },
           mohamedArafa: {
@@ -1084,8 +1085,8 @@ export const translations = {
           ],
           bullets: [
             "Email: info@wmcpa-eg.com",
-            "Cairo Office: Building 4, 4th Floor, Arkan Plaza, Plot 31, Zayed 2000 Compound, El Sheikh Zayed, Giza, Egypt",
             "Alexandria Office: 38 El-Prince Ibrahim Street, Ezbet Saad, Smouha, Alexandria, Egypt",
+            "Cairo Office: Building 4, 4th Floor, Arkan Plaza, Plot 31, Zayed 2000 Compound, El Sheikh Zayed, Giza, Egypt",
             "WhatsApp: +2 011 1117 4241",
           ],
         },
@@ -1894,6 +1895,7 @@ export const translations = {
               "مدرب معتمد من مؤسسة التمويل الدولية (IFC) – مجموعة البنك الدولي",
               "عضو اتحاد المحاسبين والمراجعين العرب (M.AFAA)",
               "عضو رابطة محترفي الضرائب الدولية الأمريكية (M.NATP)",
+              "أمين صندوق نادي أصحاب الجياد",
             ],
           },
           mohamedArafa: {
@@ -2296,8 +2298,8 @@ export const translations = {
           ],
           bullets: [
             "البريد الإلكتروني: info@wmcpa-eg.com",
-            "مكتب القاهرة: مبنى 4، الطابق الرابع، أركان بلازا، قطعة 31، كمبوند زايد 2000، الشيخ زايد، الجيزة، مصر",
             "مكتب الإسكندرية: 38 شارع الأمير إبراهيم، عزبة سعد، سموحة، الإسكندرية، مصر",
+            "مكتب القاهرة: مبنى 4، الطابق الرابع، أركان بلازا، قطعة 31، كمبوند زايد 2000، الشيخ زايد، الجيزة، مصر",
             "واتساب: +2 011 1117 4241",
           ],
         },

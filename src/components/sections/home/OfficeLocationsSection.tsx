@@ -9,7 +9,7 @@ import { ContactPartnerCard } from "@/components/ui/ContactPartnerCard";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 
 /**
- * Office location cards — Cairo & Alexandria.
+ * Office location cards — Alexandria (main) then Cairo.
  * Shared contact partner sits centered below both cards.
  */
 export function OfficeLocationsSection() {

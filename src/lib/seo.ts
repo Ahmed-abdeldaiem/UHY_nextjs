@@ -138,17 +138,17 @@ export function buildOrganizationJsonLd(siteName: string) {
     address: [
       {
         "@type": "PostalAddress",
+        addressLocality: "Alexandria",
+        addressCountry: "EG",
+        streetAddress: "38 El-Prince Ibrahim Street, Ezbet Saad, Smouha",
+      },
+      {
+        "@type": "PostalAddress",
         addressLocality: "Cairo",
         addressRegion: "Giza",
         addressCountry: "EG",
         streetAddress:
           "Building 4, 4th Floor, Arkan Plaza, Plot 31, Zayed 2000 Compound, El Sheikh Zayed",
-      },
-      {
-        "@type": "PostalAddress",
-        addressLocality: "Alexandria",
-        addressCountry: "EG",
-        streetAddress: "38 El-Prince Ibrahim Street, Ezbet Saad, Smouha",
       },
     ],
     contactPoint: [

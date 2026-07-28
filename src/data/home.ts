@@ -104,8 +104,9 @@ export interface HeroSlide {
 
 export const heroSlides: HeroSlide[] = [
   { id: "alexLeadership", image: "/T3.jpeg", branch: "alexandria", focus: "center top" },
-  { id: "alexExcellence", image: "/SL2-2.jpg", branch: "alexandria", focus: "center top" },
   { id: "cairoTeam", image: "/SL1-1.jpg", branch: "cairo", focus: "center 20%" },
+  { id: "alexExcellence", image: "/SL2-2.jpg", branch: "alexandria", focus: "center top" },
+ 
 ];
 
 // ---------------------------------------------------------------------------
@@ -155,6 +156,7 @@ export interface OfficeData {
 /** Shared contact partner for both offices — WhatsApp opens the shared mobile. */
 export const contactPartner = {
   name: "Waled Mounir",
+  email: "waled.mounir@wmcpa-eg.com",
   whatsappLink: officialContact.whatsapp.link,
 } as const;
 
@@ -162,17 +164,6 @@ const SHARED_MOBILE = officialContact.whatsapp.display;
 const SHARED_EMAIL = officialContact.email;
 
 export const offices: OfficeData[] = [
-  {
-    id: "cairo",
-    icon: "location_on",
-    phone: "+20 2 3827 7021",
-    mobile: SHARED_MOBILE,
-    email: SHARED_EMAIL,
-    directionsUrl:
-      "https://www.google.com/maps/dir/?api=1&destination=Arkan%20Plaza%2C%20El%20Sheikh%20Zayed%2C%20Giza%2C%20Egypt&travelmode=driving",
-    mapEmbedUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27633.67134648762!2d30.974413810426725!3d30.0308636502199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14585b0525c31285%3A0xe916bcf3ee2db2ad!2sArkan%20Plaza!5e0!3m2!1sen!2seg!4v1785088796786!5m2!1sen!2seg",
-  },
   {
     id: "alexandria",
     icon: "location_city",
@@ -183,6 +174,17 @@ export const offices: OfficeData[] = [
       "https://www.google.com/maps/dir/?api=1&destination=38%20El-Prince%20Ibrahim%20Street%2C%20Ezbet%20Saad%2C%20Smouha%2C%20Alexandria%2C%20Egypt&travelmode=driving",
     mapEmbedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d218387.62980564873!2d29.64322709453125!3d31.21223079999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5c49700000001%3A0x3a2f0adb98a5d690!2sUHY%20EGYPT!5e0!3m2!1sen!2seg!4v1785088858927!5m2!1sen!2seg",
+  },
+  {
+    id: "cairo",
+    icon: "location_on",
+    phone: "+20 2 3827 7021",
+    mobile: SHARED_MOBILE,
+    email: SHARED_EMAIL,
+    directionsUrl:
+      "https://www.google.com/maps/dir/?api=1&destination=Arkan%20Plaza%2C%20El%20Sheikh%20Zayed%2C%20Giza%2C%20Egypt&travelmode=driving",
+    mapEmbedUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27633.67134648762!2d30.974413810426725!3d30.0308636502199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14585b0525c31285%3A0xe916bcf3ee2db2ad!2sArkan%20Plaza!5e0!3m2!1sen!2seg!4v1785088796786!5m2!1sen!2seg",
   },
 ];
 
@@ -314,6 +316,9 @@ export const successPartnerLogos: SuccessPartnerLogo[] = [
   { id: "23", src: "/partners/23-1.jpeg" },
   { id: "24", src: "/partners/24-1.jpeg" },
   { id: "25", src: "/partners/25-1.jpeg" },
+  { id: "26", src: "/partners/p26.png" },
+  { id: "27", src: "/partners/p27.jpeg" },
+  { id: "28", src: "/partners/p28.jpeg" },
 ];
 
 /** Approximate total success partners (logos above are a featured selection) */
@@ -331,6 +336,7 @@ export const strategicPartnerLogos: StrategicPartnerLogo[] = [
   { id: "sp1", src: "/statigic-partners/sp1.jpg" },
   { id: "sp2", src: "/statigic-partners/sp2.png" },
   { id: "sp3", src: "/statigic-partners/sp3.png" },
+  { id: "sp4", src: "/statigic-partners/sp4.png" },
 ];
 
 // ---------------------------------------------------------------------------
@@ -401,7 +407,16 @@ export const expertiseGalleries: {
   },
   {
     key: "universities",
-    images: ["/college1.jfif", "/college2.jfif", "/college3.jfif", "/college4.jpeg"],
+    images: [
+      "/college1.jfif",
+      "/college2.jfif",
+      "/college3.jfif",
+      "/college4.jpeg",
+      "/college5.jpeg",
+      "/college6.jpeg",
+      "/college7.jpeg",
+      "/college8.png",
+    ],
   },
 ];
 
@@ -420,6 +435,10 @@ export const expertisePartnerMoments: {
   { src: "/p5.jpeg" },
   { src: "/p6.jpeg" },
   { src: "/p7.jpeg" },
+  { src: "/p8.jpeg" },
+  { src: "/p9.jpeg" },
+  { src: "/p10.jpeg" },
+  { src: "/p11.jpeg" },
 ];
 
 // ---------------------------------------------------------------------------
