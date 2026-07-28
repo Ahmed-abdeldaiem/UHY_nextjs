@@ -91,7 +91,7 @@ export default function ExpertisePage() {
       <section className="py-section-gap bg-background relative overflow-hidden">
         <div
           className="pointer-events-none absolute -bottom-24 -end-24 h-80 w-80 bg-contain bg-no-repeat opacity-[0.05]"
-          style={{ backgroundImage: "url('/logo-icon.png')" }}
+          style={{ backgroundImage: "url('/logo-icon-1.png')" }}
         />
         <Container className="relative z-10">
           <motion.div {...fadeInUp} className="max-w-3xl mx-auto text-center mb-14">

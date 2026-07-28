@@ -104,7 +104,7 @@ export default function ServiceDetailPage({ slug, serviceKey, icon }: ServiceDet
       <section className="py-section-gap bg-background relative overflow-hidden">
         <div
           className="pointer-events-none absolute -bottom-16 -end-16 w-72 h-72 bg-contain bg-no-repeat opacity-[0.05]"
-          style={{ backgroundImage: "url('/logo-icon.png')" }}
+          style={{ backgroundImage: "url('/logo-icon-1.png')" }}
         />
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">

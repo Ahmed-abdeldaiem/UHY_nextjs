@@ -13,8 +13,8 @@ export default function Document() {
           name="google-site-verification"
           content="HcaiPjovmQBCQzma4FKX8Cp11ooLJPCAymyrfWbrsro"
         />
-        <link rel="icon" href="/logo-icon.png" type="image/png" sizes="any" />
-        <link rel="apple-touch-icon" href="/logo-icon.png" />
+        <link rel="icon" href="/logo-icon-1.png" type="image/png" sizes="any" />
+        <link rel="apple-touch-icon" href="/logo-icon-1.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=block"

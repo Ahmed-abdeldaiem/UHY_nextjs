@@ -1,9 +1,13 @@
 import {
+  assets,
   corporateService,
   getAllInsightSlugs,
   getAllServiceSlugs,
   officialContact,
 } from "@/data/home";
+
+/** Official square brand mark used for favicon, OG, and Organization schema */
+const BRAND_LOGO = assets.logos.icon;
 
 /** Production site origin — override via NEXT_PUBLIC_SITE_URL in .env.local */
 export const DEFAULT_SITE_URL = "https://wmcpa-eg.com";
@@ -96,8 +100,17 @@ Sitemap: ${sitemapUrl}
 `;
 }
 
-/** Organization / LocalBusiness JSON-LD using the official firm name + logo-icon. */
+/** Organization / LocalBusiness JSON-LD using the official firm name + brand icon. */
 export function buildOrganizationJsonLd(siteName: string) {
+  const logoUrl = absoluteAssetUrl(BRAND_LOGO);
+  const logoImage = {
+    "@type": "ImageObject",
+    url: logoUrl,
+    width: 2500,
+    height: 2500,
+    contentUrl: logoUrl,
+  };
+
   return {
     "@context": "https://schema.org",
     "@type": "AccountingService",
@@ -110,8 +123,8 @@ export function buildOrganizationJsonLd(siteName: string) {
       "UHY Egypt",
     ],
     url: getSiteUrl(),
-    logo: absoluteAssetUrl("/logo-icon.png"),
-    image: absoluteAssetUrl("/logo-icon.png"),
+    logo: logoImage,
+    image: logoImage,
     email: officialContact.email,
     telephone: officialContact.whatsapp.display,
     areaServed: ["EG", "Middle East"],
@@ -161,7 +174,12 @@ export function buildWebSiteJsonLd(siteName: string) {
     publisher: {
       "@type": "Organization",
       name: "Upper Hand Young | Waled Mounir & Mohamed Arafa",
-      logo: absoluteAssetUrl("/logo-icon.png"),
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteAssetUrl(BRAND_LOGO),
+        width: 2500,
+        height: 2500,
+      },
     },
     inLanguage: ["en", "ar"],
   };

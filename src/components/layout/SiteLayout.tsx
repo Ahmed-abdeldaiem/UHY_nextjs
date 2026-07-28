@@ -24,7 +24,7 @@ interface SiteLayoutProps {
    * so every page gets a correct absolute canonical automatically.
    */
   path?: string;
-  /** Optional Open Graph / Twitter image path — defaults to logo-icon.png */
+  /** Optional Open Graph / Twitter image path — defaults to logo-icon-1.png */
   ogImage?: string;
   /** Hide page from search engines (placeholders / drafts) */
   noIndex?: boolean;
@@ -34,7 +34,7 @@ interface SiteLayoutProps {
 
 /**
  * Shared page shell: navbar + main + footer, with brand SEO defaults.
- * Favicon / OG image always use the official logo-icon.png unless overridden.
+ * Favicon / OG image always use the official logo-icon-1.png unless overridden.
  */
 export function SiteLayout({
   children,
@@ -82,10 +82,11 @@ export function SiteLayout({
         />
         <link rel="canonical" href={canonical} />
 
-        {/* Official brand mark in the browser tab */}
+        {/* Official brand mark — Google Search uses this favicon beside titles */}
+        <link rel="icon" href={assets.logos.icon} type="image/png" sizes="48x48" />
+        <link rel="icon" href={assets.logos.icon} type="image/png" sizes="192x192" />
         <link rel="icon" href={assets.logos.icon} type="image/png" sizes="any" />
-        <link rel="icon" href={assets.logos.icon} type="image/png" sizes="32x32" />
-        <link rel="apple-touch-icon" href={assets.logos.icon} />
+        <link rel="apple-touch-icon" href={assets.logos.icon} sizes="180x180" />
         <link rel="shortcut icon" href={assets.logos.icon} />
         <link rel="manifest" href="/site.webmanifest" />
 
@@ -98,6 +99,9 @@ export function SiteLayout({
         <meta property="og:locale" content={ogLocale} />
         <meta property="og:locale:alternate" content={altLocale} />
         <meta property="og:image" content={shareImage} />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="2500" />
+        <meta property="og:image:height" content="2500" />
         <meta property="og:image:alt" content={siteName} />
 
         {/* Twitter / X */}
