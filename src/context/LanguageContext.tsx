@@ -14,7 +14,8 @@ import {
   type TranslationKeys,
 } from "@/data/i18n/translations";
 
-const STORAGE_KEY = "boks-locale";
+/** Renamed after rebrand so old Arabic prefs under `boks-locale` do not override English default */
+const STORAGE_KEY = "uhy-locale";
 
 interface LanguageContextValue {
   locale: Locale;
@@ -27,29 +28,41 @@ interface LanguageContextValue {
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 /**
- * Provides site-wide language state (default: English).
- * Persists choice in localStorage and sets document dir/lang for RTL.
+ * Site-wide language state.
+ * Default is always English on first visit; Arabic only after the user switches.
+ * Choice is persisted for later visits.
  */
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
   const [isReady, setIsReady] = useState(false);
 
-  // Restore saved language on mount
+  // Restore saved language on mount — English unless the user previously chose Arabic
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY) as Locale | null;
-    if (saved === "en" || saved === "ar") {
-      setLocaleState(saved);
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved === "ar") {
+        setLocaleState("ar");
+      } else {
+        setLocaleState("en");
+        localStorage.setItem(STORAGE_KEY, "en");
+      }
+    } catch {
+      setLocaleState("en");
     }
     setIsReady(true);
   }, []);
 
-  // Sync <html> dir and lang when locale changes
+  // Sync <html> dir/lang and persist after the user (or restore) sets a locale
   useEffect(() => {
     if (!isReady) return;
     const root = document.documentElement;
     root.lang = locale;
     root.dir = locale === "ar" ? "rtl" : "ltr";
-    localStorage.setItem(STORAGE_KEY, locale);
+    try {
+      localStorage.setItem(STORAGE_KEY, locale);
+    } catch {
+      /* ignore storage errors */
+    }
   }, [locale, isReady]);
 
   const setLocale = useCallback((next: Locale) => setLocaleState(next), []);

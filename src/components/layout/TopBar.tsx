@@ -1,4 +1,4 @@
-import { officialContact } from "@/data/home";
+import { BOKS_INTERNATIONAL_URL, officialContact } from "@/data/home";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
 import { BrandIcon } from "@/components/ui/BrandIcon";
 
@@ -13,9 +13,15 @@ export function TopBar() {
         dir="ltr"
         className="flex items-center justify-between gap-2 sm:gap-4 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto min-h-9 md:h-10 py-1 md:py-0"
       >
-        <span className="shrink-0">
-          <img src="/bokslogo.png" alt="Brand" className="h-9" />
-        </span>
+        <a
+          href={BOKS_INTERNATIONAL_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="BOKS International"
+          className="shrink-0 inline-flex items-center opacity-95 hover:opacity-100 transition-opacity"
+        >
+          <img src="/bokslogo.png" alt="BOKS International" className="h-9" />
+        </a>
 
         <div className="flex items-center gap-3 sm:gap-4 md:gap-6 min-w-0 overflow-x-auto scrollbar-none">
           {/* Official email */}

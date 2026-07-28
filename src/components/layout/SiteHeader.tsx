@@ -71,7 +71,7 @@ export function SiteHeader() {
         }`}
       >
         <div className="flex justify-between items-center w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop gap-3">
-          <div className="flex items-center gap-6 xl:gap-8 min-w-0">
+          <div className="flex items-center gap-6 xl:gap-7 min-w-0">
             <Link href="/" className="flex items-center shrink-0">
               <motion.div
                 animate={{ scale: isScrolled ? 0.9 : 1 }}
@@ -80,9 +80,9 @@ export function SiteHeader() {
                 <Image
                   src={assets.logos.navbar}
                   alt={t.meta.siteName}
-                  width={200}
-                  height={200}
-                  className="h-12 sm:h-14 xl:h-[4.5rem] w-auto object-contain"
+                  width={180}
+                  height={180}
+                  className="h-10 sm:h-12 xl:h-[3.5rem] w-auto object-contain"
                   priority
                 />
               </motion.div>

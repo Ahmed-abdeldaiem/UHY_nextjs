@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Site-wide translations — English (default) & Arabic
  * ---------------------------------------------------
  * ALL user-facing text lives here. Components read via useLanguage().t
@@ -12,12 +12,13 @@ export const DEFAULT_LOCALE: Locale = "en";
 export const translations = {
   en: {
     meta: {
-      siteName: "Waled Mounir & Muhammad Arafa",
-      homeTitle: "Waled Mounir & Muhammad Arafa | Audit, Tax & Advisory",
+      siteName: "Upper Hand Young | Waled Mounir & Mohamed Arafa",
+      homeTitle:
+        "Upper Hand Young | Waled Mounir & Mohamed Arafa — Audit, Tax & Advisory in Egypt",
       homeDescription:
-        "Waled Mounir & Muhammad Arafa — Certified Public Accountants providing specialist audit, tax and advisory services to local and international clients across Egypt and the Arab world.",
+        "Upper Hand Young — Waled Mounir & Mohamed Arafa. Certified Public Accountants and a BOKS International member firm in Egypt, delivering specialist audit, tax and advisory services to leading institutions across Egypt and the Arab world.",
       keywords:
-        "Waled Mounir, Muhammad Arafa, CPA Egypt, audit Egypt, tax advisory Egypt, transfer pricing, corporate governance, internal audit, BOKS International Egypt, Cairo accountant, Alexandria accountant",
+        "Upper Hand Young, Upper Hand Young Egypt, UHY Egypt, Waled Mounir, Mohamed Arafa, Waled Mounir & Mohamed Arafa, CPA Egypt, audit Egypt, tax advisory Egypt, transfer pricing Egypt, corporate governance Egypt, internal audit Egypt, BOKS International Egypt, BOKS member firm Egypt, Cairo accountant, Alexandria accountant, Sheikh Zayed audit firm, Smouha accountant",
     },
     nav: {
       home: "Home",
@@ -34,7 +35,9 @@ export const translations = {
       viewAllServices: "View all services",
     },
     topBar: {
-      brand: "WALED MOUNIR & MUHAMMAD ARAFA",
+      brand: "UPPER HAND YOUNG — WALED MOUNIR & MOHAMED ARAFA",
+      brandPrimary: "Upper Hand Young",
+      brandSecondary: "Waled Mounir & Mohamed Arafa",
       cairoLabel: "Cairo",
       alexLabel: "Alexandria",
     },
@@ -307,7 +310,7 @@ export const translations = {
           badge: "Audit, Tax & Advisory Experts",
           title: "Excellence in Every Detail",
           description:
-            "Waled Mounir & Muhammad Arafa — a partnership devoted to precision, compliance and lasting client relationships.",
+            "Waled Mounir & Mohamed Arafa — a partnership devoted to precision, compliance and lasting client relationships.",
         },
       },
     },
@@ -340,6 +343,7 @@ export const translations = {
       countries: "Countries",
       badgeTitle: "A Top 10 Global Alliance of Professional Accountancy & Law Firms",
       imageAlt: "A professional team meeting in a high-end Cairo office overlooking the Nile.",
+      visitWebsite: "Visit BOKS International",
     },
     offices: {
       sectionEyebrow: "Our Presence",
@@ -358,15 +362,15 @@ export const translations = {
       },
       alexandria: {
         name: "Alexandria Office",
-        company: "Waled Mounir & Mohammed Arafa",
+        company: "Waled Mounir & Mohamed Arafa",
         address: "38 El Bakly Street, at the intersection with Prince Ibrahim Mosque Street - Ezbet Saad, Smouha - Alexandria",
       },
     },
     locationsPage: {
       meta: {
-        title: "Our Locations | Waled Mounir & Muhammad Arafa",
+        title: "Our Locations | Upper Hand Young | Waled Mounir & Mohamed Arafa",
         description:
-          "Visit our Cairo and Alexandria offices. Find addresses, contact details and Google Maps directions for Waled Mounir & Muhammad Arafa.",
+          "Visit Upper Hand Young offices in Cairo and Alexandria — Waled Mounir & Mohamed Arafa, a BOKS International member firm. Addresses, contacts and Google Maps directions.",
       },
       hero: {
         eyebrow: "Our Presence",
@@ -387,9 +391,9 @@ export const translations = {
     },
     partnersPage: {
       meta: {
-        title: "Success Partners | Waled Mounir & Muhammad Arafa",
+        title: "Success Partners | Upper Hand Young | Waled Mounir & Mohamed Arafa",
         description:
-          "Discover key institutions and companies that trust Waled Mounir & Muhammad Arafa for audit, tax and advisory excellence across Egypt.",
+          "Discover key institutions and companies that trust Upper Hand Young — Waled Mounir & Mohamed Arafa, a BOKS International member firm — for audit, tax and advisory excellence across Egypt.",
       },
       hero: {
         eyebrow: "Client Trust",
@@ -414,6 +418,13 @@ export const translations = {
         subtitle:
           "A selection of leading organizations that rely on us for audit, tax, advisory and governance excellence — among many more success partners we are proud to serve.",
       },
+      strategic: {
+        eyebrow: "Alliances",
+        title: "Strategic Partners",
+        subtitle:
+          "Institutional alliances that strengthen our professional reach, standards and capacity to serve clients with excellence.",
+        logoAlt: "Strategic partner",
+      },
       cta: {
         title: "Ready to join our success partners?",
         description:
@@ -424,9 +435,9 @@ export const translations = {
     },
     expertisePage: {
       meta: {
-        title: "Our Expertise | Waled Mounir & Muhammad Arafa",
+        title: "Our Expertise | Upper Hand Young | Waled Mounir & Mohamed Arafa",
         description:
-          "Partner credentials, landmark professional publications and participation in major book fairs, Jarir Bookstore and accredited university forums across the Middle East.",
+          "Credentials, landmark publications and professional presence of Upper Hand Young — Waled Mounir & Mohamed Arafa — across book fairs, Jarir Bookstore and accredited university forums in the Middle East.",
       },
       hero: {
         eyebrow: "Depth of Experience",
@@ -476,7 +487,7 @@ export const translations = {
             badge: "Bestseller",
             title: "Football Economics — From the Pitch to the Markets",
             subtitle: "A professional research encyclopedia on sports investment",
-            credit: "Authored by: Batel Albatel, Muhammad Arafa & Waled Mounir",
+            credit: "Authored by: Batel Albatel, Mohamed Arafa & Waled Mounir",
             description:
               "The first of its kind in the Arabic library — an applied, professional and research reference serving academics, specialists and decision-makers in sports management, economics and accounting.",
           },
@@ -484,7 +495,7 @@ export const translations = {
             badge: "Professional Translation",
             title: "Internal Control Review & Compliance",
             subtitle: "Documentation and testing under the new COSO framework",
-            credit: "Translated by: Batel Albatel, Muhammad Arafa & Waled Mounir",
+            credit: "Translated by: Batel Albatel, Mohamed Arafa & Waled Mounir",
             description:
               "A professional reference for auditors and accountants — a precise scholarly Arabic translation of one of the world's leading works on internal control and compliance under the COSO framework.",
           },
@@ -492,7 +503,7 @@ export const translations = {
             badge: "Institutional Publication",
             title: "Corruption & Fraud in Sport",
             subtitle: "Eighteen chapters spanning theory, practice, control and governance",
-            credit: "Authored by: Batel Albatel, Muhammad Arafa & Waled Mounir",
+            credit: "Authored by: Batel Albatel, Mohamed Arafa & Waled Mounir",
             description:
               "A comprehensive Arabic reference on corruption and fraud in sport — combining theoretical depth with case studies and legal–control tools for response. Issued under the official patronage of the Batel Abdullah Albatel Foundation for Research & Studies.",
           },
@@ -500,7 +511,7 @@ export const translations = {
             badge: "Professional Translation",
             title: "Auditing & Fraud Cases — Issues and Investigations",
             subtitle: "Major cases of earnings manipulation and embezzlement",
-            credit: "Translated by: Muhammad Arafa & Waled Mounir — Author: Michael C. Knapp",
+            credit: "Translated by: Mohamed Arafa & Waled Mounir — Author: Michael C. Knapp",
             description:
               "Major financial scandals that expose control failures and offer practical lessons on fraud, earnings manipulation, and the vital role of transparency and oversight.",
           },
@@ -582,9 +593,9 @@ export const translations = {
     },
     about: {
       meta: {
-        title: "About Us | Waled Mounir & Muhammad Arafa",
+        title: "About Us | Upper Hand Young | Waled Mounir & Mohamed Arafa",
         description:
-          "Over 25 years of trusted expertise in audit, tax and advisory across Egypt — led by Waled Mounir & Muhammad Arafa, members of the BOKS International global network.",
+          "Over 25 years of trusted expertise in audit, tax and advisory across Egypt — Upper Hand Young, led by Waled Mounir & Mohamed Arafa, a member of the BOKS International global network.",
       },
       hero: {
         eyebrow: "Who We Are",
@@ -596,7 +607,7 @@ export const translations = {
         eyebrow: "Our Story",
         title: "Built on Decades of Proven Expertise in Audit, Tax & Advisory",
         paragraph1:
-          "Our work stands on a foundation of more than 25 years of hands-on expertise, led by our founding partners, Waled Mounir and Muhammad Arafa, whose careers span decades of leadership in audit, tax and advisory across Egypt and the Arab world.",
+          "Our work stands on a foundation of more than 25 years of hands-on expertise, led by our founding partners, Waled Mounir and Mohamed Arafa, whose careers span decades of leadership in audit, tax and advisory across Egypt and the Arab world.",
         paragraph2:
           "Together, our partners and team bring deep, practical experience across Egypt's most dynamic sectors — from manufacturing and real estate to energy and financial services — pairing technical mastery with a genuine understanding of the local market.",
         paragraph3:
@@ -673,7 +684,7 @@ export const translations = {
             ],
           },
           mohamedArafa: {
-            name: "Muhammad Arafa",
+            name: "Mohamed Arafa",
             role: "Audit Partner",
             credentials: [
               "Former Audit Partner at a leading global firm",
@@ -746,9 +757,9 @@ export const translations = {
       relatedTitle: "More insights",
       page: {
         meta: {
-          title: "Insights | Waled Mounir & Muhammad Arafa",
+          title: "Insights | Upper Hand Young | Waled Mounir & Mohamed Arafa",
           description:
-            "Professional insights on audit, tax, governance, cyber risk and financial reporting from Waled Mounir & Muhammad Arafa.",
+            "Professional insights on audit, tax, governance, cyber risk and financial reporting from Upper Hand Young — Waled Mounir & Mohamed Arafa.",
         },
         hero: {
           eyebrow: "Knowledge Hub",
@@ -967,9 +978,9 @@ export const translations = {
     },
     contact: {
       meta: {
-        title: "Contact Us | Waled Mounir & Muhammad Arafa",
+        title: "Contact Us | Upper Hand Young | Waled Mounir & Mohamed Arafa",
         description:
-          "Get in touch with our Cairo and Alexandria teams for audit, tax and advisory support. Send us a message and we'll respond promptly.",
+          "Contact Upper Hand Young — Waled Mounir & Mohamed Arafa — in Cairo and Alexandria for audit, tax and advisory support. A BOKS International member firm in Egypt.",
       },
       hero: {
         eyebrow: "Contact Us",
@@ -1034,7 +1045,7 @@ export const translations = {
       getInTouchTitle: "Let's work together",
       getInTouchCta: "Get in Touch",
       availability: "Available for consultation",
-      copyright: "© Copyright 2026 UPPER HAND YOUNG Waled Mounir & Mohammed Arafa. All Rights Reserved.",
+      copyright: "© Copyright 2026 UPPER HAND YOUNG Waled Mounir & Mohamed Arafa. All Rights Reserved.",
       developedBy: "Developed by Ahmed Abdeldaiem",
       developedByLinkedIn: "Ahmed Abdeldaiem on LinkedIn",
       developedByEmail: "Email Ahmed Abdeldaiem",
@@ -1044,9 +1055,9 @@ export const translations = {
     },
     privacyPage: {
       meta: {
-        title: "Privacy Notice | Waled Mounir & Muhammad Arafa",
+        title: "Privacy Notice | Upper Hand Young | Waled Mounir & Mohamed Arafa",
         description:
-          "How Waled Mounir & Muhammad Arafa collect, use and protect personal information when you visit our website or use our professional services.",
+          "How Upper Hand Young (Waled Mounir & Mohamed Arafa) collect, use and protect personal information when you visit our website or use our professional services.",
       },
       hero: {
         eyebrow: "Legal",
@@ -1194,7 +1205,7 @@ export const translations = {
           id: "disclosure",
           title: "Disclosure",
           paragraphs: [
-            "Waled Mounir & Muhammad Arafa is an independent professional services firm operating in Egypt. References on this website to BOKS International describe our membership in an international network of independent firms.",
+            "Upper Hand Young — Waled Mounir & Mohamed Arafa is an independent professional services firm operating in Egypt and a member of BOKS International. References on this website to BOKS International describe our membership in an international network of independent firms.",
             "BOKS International member firms are separate and independent legal entities. No member firm is responsible for the acts or omissions of another, and membership does not create a partnership, joint venture or agency relationship between member firms unless expressly agreed in writing for a specific engagement.",
             "Information published on this website is for general guidance only and does not constitute legal, tax, audit or other professional advice. You should obtain advice tailored to your circumstances before acting on any information found here.",
             "We take reasonable care to keep website content accurate and up to date, but we do not accept liability for decisions made solely on the basis of website materials. Client engagements are governed by the terms of the relevant engagement letter and applicable professional standards.",
@@ -1216,12 +1227,13 @@ export const translations = {
 
   ar: {
     meta: {
-      siteName: "وليد منير ومحمد عرفة",
-      homeTitle: "وليد منير ومحمد عرفة | التدقيق والضرائب والاستشارات",
+      siteName: "Upper Hand Young | وليد منير ومحمد عرفة",
+      homeTitle:
+        "Upper Hand Young | وليد منير ومحمد عرفة — التدقيق والضرائب والاستشارات في مصر",
       homeDescription:
-        "وليد منير ومحمد عرفة — محاسبون قانونيون يقدّمون خدمات متخصصة في التدقيق والضرائب والاستشارات للعملاء المحليين والدوليين في مصر والوطن العربي.",
+        "Upper Hand Young — وليد منير ومحمد عرفة. محاسبون قانونيون وعضو في شبكة BOKS International العالمية، نقدّم خدمات متخصصة في التدقيق والضرائب والاستشارات لكبرى المؤسسات في مصر والوطن العربي.",
       keywords:
-        "وليد منير, محمد عرفة, محاسب قانوني مصر, تدقيق مصر, استشارات ضريبية, تسعير المعاملات, حوكمة الشركات, مراجعة داخلية, BOKS International مصر, محاسب القاهرة, محاسب الإسكندرية",
+        "Upper Hand Young, أبر هاند يونغ, وليد منير, محمد عرفة, وليد منير ومحمد عرفة, محاسب قانوني مصر, تدقيق مصر, استشارات ضريبية مصر, تسعير المعاملات, حوكمة الشركات, مراجعة داخلية, BOKS International مصر, عضو BOKS مصر, محاسب القاهرة, محاسب الإسكندرية, تدقيق الشيخ زايد, محاسب سموحة",
     },
     nav: {
       home: "الرئيسية",
@@ -1238,7 +1250,9 @@ export const translations = {
       viewAllServices: "عرض جميع الخدمات",
     },
     topBar: {
-      brand: "وليد منير ومحمد عرفة",
+      brand: "Upper Hand Young — وليد منير ومحمد عرفة",
+      brandPrimary: "Upper Hand Young",
+      brandSecondary: "وليد منير ومحمد عرفة",
       cairoLabel: "القاهرة",
       alexLabel: "الإسكندرية",
     },
@@ -1543,6 +1557,7 @@ export const translations = {
       countries: "دول",
       badgeTitle: "أحد أكبر 10 تحالفات عالمية لمكاتب المحاسبة والقانون المهنية",
       imageAlt: "اجتماع فريق مهني في مكتب فاخر بالقاهرة يطل على النيل.",
+      visitWebsite: "زيارة موقع BOKS International",
     },
     offices: {
       sectionEyebrow: "حضورنا",
@@ -1561,15 +1576,15 @@ export const translations = {
       },
       alexandria: {
         name: "مكتب الإسكندرية",
-        company: "Waled Mounir & Mohammed Arafa",
+        company: "Waled Mounir & Mohamed Arafa",
         address: "38 ش البقلى مع تقاطع ش مسجد البرنس ابراهيم - عزبة سعد سموحة - اسكندرية",
       },
     },
     locationsPage: {
       meta: {
-        title: "فروعنا | وليد منير ومحمد عرفة",
+        title: "فروعنا | Upper Hand Young | وليد منير ومحمد عرفة",
         description:
-          "زوروا مكتبينا في القاهرة والإسكندرية. العناوين وبيانات التواصل وخرائط جوجل لوليد منير ومحمد عرفة.",
+          "زوروا مكاتب Upper Hand Young في القاهرة والإسكندرية — وليد منير ومحمد عرفة، عضو شبكة BOKS International. العناوين وبيانات التواصل وخرائط جوجل.",
       },
       hero: {
         eyebrow: "حضورنا",
@@ -1590,9 +1605,9 @@ export const translations = {
     },
     partnersPage: {
       meta: {
-        title: "شركاء النجاح | وليد منير ومحمد عرفة",
+        title: "شركاء النجاح | Upper Hand Young | وليد منير ومحمد عرفة",
         description:
-          "تعرّف على أبرز المؤسسات والشركات التي تثق بوليد منير ومحمد عرفة في التدقيق والضرائب والاستشارات في مصر.",
+          "تعرّف على أبرز المؤسسات والشركات التي تثق بـ Upper Hand Young — وليد منير ومحمد عرفة، عضو شبكة BOKS International — في التدقيق والضرائب والاستشارات في مصر.",
       },
       hero: {
         eyebrow: "ثقة العملاء",
@@ -1617,6 +1632,13 @@ export const translations = {
         subtitle:
           "مجموعة مختارة من المؤسسات الرائدة التي تعتمد علينا في التدقيق والضرائب والاستشارات والحوكمة — ضمن شركاء نجاح كثيرين نفتخر بخدمتهم.",
       },
+      strategic: {
+        eyebrow: "تحالفات",
+        title: "الشركاء الاستراتيجيون",
+        subtitle:
+          "تحالفات مؤسسية تعزّز انتشارنا المهني ومعاييرنا وقدرتنا على خدمة العملاء بتميز.",
+        logoAlt: "شريك استراتيجي",
+      },
       cta: {
         title: "هل أنتم مستعدون للانضمام إلى شركاء نجاحنا؟",
         description:
@@ -1627,9 +1649,9 @@ export const translations = {
     },
     expertisePage: {
       meta: {
-        title: "خبراتنا | وليد منير ومحمد عرفة",
+        title: "خبراتنا | Upper Hand Young | وليد منير ومحمد عرفة",
         description:
-          "مؤهلات الشريكين، المؤلفات المهنية البارزة، والمشاركة في معارض الكتب ومكتبة جرير والمحافل الجامعية المعتمدة في الشرق الأوسط.",
+          "مؤهلات وإصدارات وحضور مهني لـ Upper Hand Young — وليد منير ومحمد عرفة — في معارض الكتب ومكتبة جرير والمحافل الجامعية المعتمدة في الشرق الأوسط.",
       },
       hero: {
         eyebrow: "عمق الخبرة",
@@ -1785,9 +1807,9 @@ export const translations = {
     },
     about: {
       meta: {
-        title: "من نحن | وليد منير ومحمد عرفة",
+        title: "من نحن | Upper Hand Young | وليد منير ومحمد عرفة",
         description:
-          "أكثر من 25 عاماً من الخبرة الموثوقة في التدقيق والضرائب والاستشارات في مصر — بقيادة وليد منير ومحمد عرفة، وعضوية شبكة BOKS International العالمية.",
+          "أكثر من 25 عاماً من الخبرة الموثوقة في التدقيق والضرائب والاستشارات في مصر — Upper Hand Young بقيادة وليد منير ومحمد عرفة، عضو شبكة BOKS International العالمية.",
       },
       hero: {
         eyebrow: "عن الشركة",
@@ -1948,9 +1970,9 @@ export const translations = {
       relatedTitle: "المزيد من الرؤى",
       page: {
         meta: {
-          title: "رؤى وتحليلات | وليد منير ومحمد عرفة",
+          title: "رؤى وتحليلات | Upper Hand Young | وليد منير ومحمد عرفة",
           description:
-            "تحليلات مهنية في التدقيق والضرائب والحوكمة والمخاطر السيبرانية والتقارير المالية من وليد منير ومحمد عرفة.",
+            "تحليلات مهنية في التدقيق والضرائب والحوكمة والمخاطر السيبرانية والتقارير المالية من Upper Hand Young — وليد منير ومحمد عرفة.",
         },
         hero: {
           eyebrow: "مركز المعرفة",
@@ -2169,9 +2191,9 @@ export const translations = {
     },
     contact: {
       meta: {
-        title: "تواصل معنا | وليد منير ومحمد عرفة",
+        title: "تواصل معنا | Upper Hand Young | وليد منير ومحمد عرفة",
         description:
-          "تواصل مع فريقينا في القاهرة والإسكندرية للحصول على دعم في التدقيق والضرائب والاستشارات. أرسل لنا رسالة وسنرد عليك سريعاً.",
+          "تواصل مع Upper Hand Young — وليد منير ومحمد عرفة — في القاهرة والإسكندرية للتدقيق والضرائب والاستشارات. عضو شبكة BOKS International في مصر.",
       },
       hero: {
         eyebrow: "تواصل معنا",
@@ -2235,7 +2257,7 @@ export const translations = {
       getInTouchTitle: "لنعمل معاً",
       getInTouchCta: "تواصل معنا",
       availability: "متاحون للاستشارة",
-      copyright: "© حقوق النشر 2026 UPPER HAND YOUNG Waled Mounir & Mohammed Arafa. جميع الحقوق محفوظة.",
+      copyright: "© حقوق النشر 2026 UPPER HAND YOUNG Waled Mounir & Mohamed Arafa. جميع الحقوق محفوظة.",
       developedBy: "تطوير: أحمد عبدالدايم",
       developedByLinkedIn: "أحمد عبدالدايم على LinkedIn",
       developedByEmail: "مراسلة أحمد عبدالدايم بالبريد",
@@ -2245,9 +2267,9 @@ export const translations = {
     },
     privacyPage: {
       meta: {
-        title: "إشعار الخصوصية | وليد منير ومحمد عرفة",
+        title: "إشعار الخصوصية | Upper Hand Young | وليد منير ومحمد عرفة",
         description:
-          "كيف تجمع شركة وليد منير ومحمد عرفة المعلومات الشخصية وتستخدمها وتحميها عند زيارة موقعنا أو الاستفادة من خدماتنا المهنية.",
+          "كيف تجمع Upper Hand Young (وليد منير ومحمد عرفة) المعلومات الشخصية وتستخدمها وتحميها عند زيارة موقعنا أو الاستفادة من خدماتنا المهنية.",
       },
       hero: {
         eyebrow: "قانوني",

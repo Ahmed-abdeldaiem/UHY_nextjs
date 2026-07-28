@@ -12,7 +12,7 @@ import { CTASection } from "@/components/sections/home/CTASection";
 import { useLanguage } from "@/context/LanguageContext";
 
 /**
- * Waled Mounir & Muhammad Arafa — Home Page
+ * Upper Hand Young — Waled Mounir & Mohamed Arafa — Home Page
  *
  * Text content  → src/data/i18n/translations.ts
  * Images & URLs   → src/data/home.ts

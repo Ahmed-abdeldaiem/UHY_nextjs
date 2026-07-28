@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import {
   assets,
   SUCCESS_PARTNERS_TOTAL,
+  strategicPartnerLogos,
   successPartnerLogos,
 } from "@/data/home";
 import { useLanguage } from "@/context/LanguageContext";
@@ -15,8 +16,11 @@ import { fadeInUp, staggerItem } from "@/lib/animations";
 const HERO_GRADIENT =
   "linear-gradient(105deg, #3D1A5C 0%, rgba(61,26,92,0.92) 30%, rgba(74,42,112,0.72) 55%, rgba(89,33,148,0.48) 78%, rgba(125,41,181,0.3) 100%)";
 
+const logoCardClass =
+  "relative flex aspect-[5/3] items-center justify-center rounded-2xl bg-surface-white border border-outline-variant px-4 py-5 shadow-sm transition-[transform,box-shadow,border-color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform group-hover:-translate-y-0.5 group-hover:shadow-md group-hover:border-secondary/35";
+
 /**
- * Dedicated Success Partners page — institutional logo wall + SEO.
+ * Dedicated Success Partners page — strategic + success partner logos + SEO.
  */
 export default function PartnersPage() {
   const { t, isRtl } = useLanguage();
@@ -127,7 +131,53 @@ export default function PartnersPage() {
             </motion.div>
           </div>
 
-          {/* Logo wall */}
+          {/* Strategic partners */}
+          <div className="mb-16 md:mb-20">
+            <div className="mb-10 text-center max-w-2xl mx-auto">
+              <span className="text-secondary font-label-sm text-label-sm uppercase tracking-[0.25em] mb-3 block">
+                {p.strategic.eyebrow}
+              </span>
+              <h2 className="font-headline-lg text-headline-md md:text-headline-lg text-primary mb-3">
+                {p.strategic.title}
+              </h2>
+              <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                {p.strategic.subtitle}
+              </p>
+            </div>
+
+            <motion.ul
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: { staggerChildren: 0.08, delayChildren: 0.05 },
+                },
+              }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto"
+            >
+              {strategicPartnerLogos.map((logo) => (
+                <motion.li key={logo.id} variants={staggerItem} className="group relative">
+                  <div className={logoCardClass}>
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-secondary-fixed/70 to-transparent opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100"
+                    />
+                    <Image
+                      src={logo.src}
+                      alt={logo.alt ?? `${p.strategic.logoAlt} ${logo.id}`}
+                      width={220}
+                      height={110}
+                      className="max-h-14 sm:max-h-16 md:max-h-[4.5rem] w-auto max-w-full object-contain transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.02]"
+                    />
+                  </div>
+                </motion.li>
+              ))}
+            </motion.ul>
+          </div>
+
+          {/* Success partners logo wall */}
           <div className="mb-10 text-center max-w-2xl mx-auto">
             <span className="text-secondary font-label-sm text-label-sm uppercase tracking-[0.25em] mb-3 block">
               {p.grid.eyebrow}
@@ -153,22 +203,18 @@ export default function PartnersPage() {
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5"
           >
             {successPartnerLogos.map((logo) => (
-              <motion.li
-                key={logo.id}
-                variants={staggerItem}
-                className="group relative"
-              >
-                <div className="relative flex aspect-[5/3] items-center justify-center rounded-2xl bg-surface-white border border-outline-variant px-4 py-5 shadow-sm transition-[transform,box-shadow,border-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1 group-hover:shadow-lg group-hover:border-secondary/40">
+              <motion.li key={logo.id} variants={staggerItem} className="group relative">
+                <div className={logoCardClass}>
                   <span
                     aria-hidden="true"
-                    className="pointer-events-none absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-secondary-fixed/70 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                    className="pointer-events-none absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-secondary-fixed/70 to-transparent opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100"
                   />
                   <Image
                     src={logo.src}
                     alt={logo.alt ?? `${t.successPartners.logoAlt} ${logo.id}`}
                     width={180}
                     height={90}
-                    className="max-h-12 sm:max-h-14 md:max-h-16 w-auto max-w-full object-contain transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                    className="max-h-12 sm:max-h-14 md:max-h-16 w-auto max-w-full object-contain transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.02]"
                   />
                 </div>
               </motion.li>

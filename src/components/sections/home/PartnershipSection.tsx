@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { motion } from "motion/react";
-import { partnershipImage, partnershipStats } from "@/data/home";
+import { BOKS_INTERNATIONAL_URL, partnershipImage, partnershipStats } from "@/data/home";
 import { useLanguage } from "@/context/LanguageContext";
 import { Container } from "@/components/ui/Container";
+import { DirectionalArrow } from "@/components/ui/DirectionalArrow";
 import { fadeInUp, slideInFromSide } from "@/lib/animations";
 
 /**
@@ -42,6 +43,16 @@ export function PartnershipSection() {
                 </div>
               ))}
             </div>
+
+            <a
+              href={BOKS_INTERNATIONAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-8 inline-flex items-center gap-2 px-6 py-3.5 bg-primary text-on-primary rounded-lg font-label-sm text-label-sm shadow-md hover:bg-[#ff9100] hover:text-white transition-all active:scale-95"
+            >
+              {t.partnership.visitWebsite}
+              <DirectionalArrow className="text-base transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
+            </a>
           </motion.div>
 
           <motion.div

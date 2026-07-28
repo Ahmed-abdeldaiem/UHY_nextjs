@@ -43,6 +43,7 @@ export function getSitemapEntries(): SitemapEntry[] {
     { path: "/", changefreq: "weekly", priority: 1 },
     { path: "/about", changefreq: "monthly", priority: 0.9 },
     { path: "/expertise", changefreq: "monthly", priority: 0.9 },
+    { path: "/partners", changefreq: "monthly", priority: 0.85 },
     { path: "/services", changefreq: "weekly", priority: 0.95 },
     { path: "/locations", changefreq: "monthly", priority: 0.85 },
     { path: "/insights", changefreq: "weekly", priority: 0.9 },
@@ -101,13 +102,26 @@ export function buildOrganizationJsonLd(siteName: string) {
     "@context": "https://schema.org",
     "@type": "AccountingService",
     name: siteName,
-    alternateName: ["Upper Hand Young", "WMCPA"],
+    legalName: "Upper Hand Young — Waled Mounir & Mohamed Arafa",
+    alternateName: [
+      "Upper Hand Young",
+      "Waled Mounir & Mohamed Arafa",
+      "WMCPA",
+      "UHY Egypt",
+    ],
     url: getSiteUrl(),
     logo: absoluteAssetUrl("/logo-icon.png"),
     image: absoluteAssetUrl("/logo-icon.png"),
     email: officialContact.email,
     telephone: officialContact.whatsapp.display,
     areaServed: ["EG", "Middle East"],
+    description:
+      "Upper Hand Young — Waled Mounir & Mohamed Arafa. Certified Public Accountants in Egypt and a member firm of BOKS International, providing audit, tax and advisory services.",
+    memberOf: {
+      "@type": "Organization",
+      name: "BOKS International",
+      url: "https://boks-international.com/",
+    },
     address: [
       {
         "@type": "PostalAddress",
@@ -133,6 +147,7 @@ export function buildOrganizationJsonLd(siteName: string) {
         availableLanguage: ["en", "ar"],
       },
     ],
+    sameAs: [],
   };
 }
 
@@ -141,10 +156,11 @@ export function buildWebSiteJsonLd(siteName: string) {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteName,
+    alternateName: "Upper Hand Young",
     url: getSiteUrl(),
     publisher: {
       "@type": "Organization",
-      name: siteName,
+      name: "Upper Hand Young | Waled Mounir & Mohamed Arafa",
       logo: absoluteAssetUrl("/logo-icon.png"),
     },
     inLanguage: ["en", "ar"],

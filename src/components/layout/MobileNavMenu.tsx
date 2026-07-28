@@ -137,14 +137,19 @@ export function MobileNavMenu() {
             className="fixed inset-y-0 end-0 z-[101] w-[min(20rem,85vw)] max-w-full bg-surface-white shadow-2xl flex flex-col xl:hidden"
             style={{ paddingTop: "env(safe-area-inset-top)", paddingBottom: "env(safe-area-inset-bottom)" }}
           >
-            <div className="flex items-center justify-between px-5 py-4 border-b border-outline-variant shrink-0">
-              <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary">
-                {t.topBar.brand}
-              </span>
+            <div className="flex items-center justify-between px-5 py-4 border-b border-outline-variant shrink-0 gap-3">
+              <div className="min-w-0 pe-1">
+                <span className="block font-semibold text-sm text-primary leading-tight tracking-wide">
+                  {t.topBar.brandPrimary}
+                </span>
+                <span className="block mt-0.5 text-[11px] text-on-surface-variant leading-snug">
+                  {t.topBar.brandSecondary}
+                </span>
+              </div>
               <button
                 type="button"
                 onClick={close}
-                className="inline-flex items-center justify-center w-9 h-9 rounded-lg hover:bg-surface-container transition-colors"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-lg hover:bg-surface-container transition-colors shrink-0"
                 aria-label={t.nav.closeMenu}
               >
                 <MaterialIcon name="close" className="text-xl" />

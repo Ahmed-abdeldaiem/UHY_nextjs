@@ -10,13 +10,13 @@
 export const assets = {
   logos: {
     /** Navbar brand mark */
-    navbar: "/logopng.png",
+    navbar: "/logopng-1.png",
     /** Footer brand mark */
-    footer: "/logowhite.png",
+    footer: "/logowhite-1.png",
     /** Compact square icon (dark) */
-    icon: "/logo-icon.png",
+    icon: "/logo-icon-1.png",
     /** Compact square icon (white, for dark backgrounds) */
-    iconWhite: "/logo-icon-white.png",
+    iconWhite: "/logo-icon-white-1.png",
   },
   images: {
     /** Branded background used behind the site footer */
@@ -42,6 +42,8 @@ export const assets = {
 
 export const SERVICES_PAGE_HREF = "/services";
 
+/** Official BOKS International global website */
+export const BOKS_INTERNATIONAL_URL = "https://boks-international.com/";
 
 export const navLinks = [
   { key: "home" as const, href: "/" },
@@ -316,6 +318,20 @@ export const successPartnerLogos: SuccessPartnerLogo[] = [
 
 /** Approximate total success partners (logos above are a featured selection) */
 export const SUCCESS_PARTNERS_TOTAL = 50;
+
+/**
+ * Strategic partners — shown on the Partners page only.
+ * Folder on disk: /public/statigic-partners (keep filenames in sync when editing).
+ *
+ * 👉 To add / replace / remove: edit this array only (same shape as successPartnerLogos).
+ */
+export type StrategicPartnerLogo = SuccessPartnerLogo;
+
+export const strategicPartnerLogos: StrategicPartnerLogo[] = [
+  { id: "sp1", src: "/statigic-partners/sp1.jpg" },
+  { id: "sp2", src: "/statigic-partners/sp2.png" },
+  { id: "sp3", src: "/statigic-partners/sp3.png" },
+];
 
 // ---------------------------------------------------------------------------
 // Expertise page — publications & professional presence
