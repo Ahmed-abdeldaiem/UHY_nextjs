@@ -9,6 +9,10 @@ export default function Document() {
     <Html lang="en" className="scroll-smooth">
       <Head>
         <meta name="theme-color" content="#3D1A5C" />
+        <meta
+          name="google-site-verification"
+          content="HcaiPjovmQBCQzma4FKX8Cp11ooLJPCAymyrfWbrsro"
+        />
         <link rel="icon" href="/logo-icon.png" type="image/png" sizes="any" />
         <link rel="apple-touch-icon" href="/logo-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
