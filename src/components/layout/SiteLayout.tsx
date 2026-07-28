@@ -24,7 +24,7 @@ interface SiteLayoutProps {
    * so every page gets a correct absolute canonical automatically.
    */
   path?: string;
-  /** Optional Open Graph / Twitter image path — defaults to logo-icon-1.png */
+  /** Optional Open Graph / Twitter image path — defaults to logos.share (logo-icon-2) */
   ogImage?: string;
   /** Hide page from search engines (placeholders / drafts) */
   noIndex?: boolean;
@@ -32,9 +32,17 @@ interface SiteLayoutProps {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
+function imageMimeType(assetPath: string): string {
+  const lower = assetPath.toLowerCase();
+  if (lower.endsWith(".png")) return "image/png";
+  if (lower.endsWith(".webp")) return "image/webp";
+  if (lower.endsWith(".gif")) return "image/gif";
+  return "image/jpeg";
+}
+
 /**
  * Shared page shell: navbar + main + footer, with brand SEO defaults.
- * Favicon / OG image always use the official logo-icon-1.png unless overridden.
+ * Favicon / default OG use logos.share (logo-icon-2) — UI keeps logos.icon.
  */
 export function SiteLayout({
   children,
@@ -59,7 +67,10 @@ export function SiteLayout({
       ? router.asPath.split("?")[0].split("#")[0]
       : "/");
   const canonical = absoluteUrl(resolvedPath === "" ? "/" : resolvedPath);
-  const shareImage = absoluteAssetUrl(ogImage ?? assets.logos.icon);
+  const sharePath = ogImage ?? assets.logos.share;
+  const shareImage = absoluteAssetUrl(sharePath);
+  const shareMime = imageMimeType(sharePath);
+  const isDefaultShare = !ogImage;
 
   const structuredData = [
     buildOrganizationJsonLd(siteName),
@@ -82,12 +93,12 @@ export function SiteLayout({
         />
         <link rel="canonical" href={canonical} />
 
-        {/* Official brand mark — Google Search uses this favicon beside titles */}
-        <link rel="icon" href={assets.logos.icon} type="image/png" sizes="48x48" />
-        <link rel="icon" href={assets.logos.icon} type="image/png" sizes="192x192" />
-        <link rel="icon" href={assets.logos.icon} type="image/png" sizes="any" />
-        <link rel="apple-touch-icon" href={assets.logos.icon} sizes="180x180" />
-        <link rel="shortcut icon" href={assets.logos.icon} />
+        {/* Favicon for Google Search / browsers — lightweight share mark only */}
+        <link rel="icon" href={assets.logos.share} type="image/jpeg" sizes="48x48" />
+        <link rel="icon" href={assets.logos.share} type="image/jpeg" sizes="192x192" />
+        <link rel="icon" href={assets.logos.share} type="image/jpeg" sizes="any" />
+        <link rel="apple-touch-icon" href={assets.logos.share} sizes="180x180" />
+        <link rel="shortcut icon" href={assets.logos.share} />
         <link rel="manifest" href="/site.webmanifest" />
 
         {/* Open Graph */}
@@ -99,9 +110,13 @@ export function SiteLayout({
         <meta property="og:locale" content={ogLocale} />
         <meta property="og:locale:alternate" content={altLocale} />
         <meta property="og:image" content={shareImage} />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="2500" />
-        <meta property="og:image:height" content="2500" />
+        <meta property="og:image:type" content={shareMime} />
+        {isDefaultShare ? (
+          <>
+            <meta property="og:image:width" content="600" />
+            <meta property="og:image:height" content="600" />
+          </>
+        ) : null}
         <meta property="og:image:alt" content={siteName} />
 
         {/* Twitter / X */}

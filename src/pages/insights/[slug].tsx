@@ -53,7 +53,7 @@ export default function InsightArticlePage({
       name: siteName,
       logo: {
         "@type": "ImageObject",
-        url: absoluteAssetUrl("/logo-icon-1.png"),
+        url: absoluteAssetUrl("/logo-icon-2.jpg"),
       },
     },
     mainEntityOfPage: absoluteUrl(`/insights/${slug}`),

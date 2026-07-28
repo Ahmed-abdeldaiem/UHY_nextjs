@@ -6,11 +6,17 @@ import {
   officialContact,
 } from "@/data/home";
 
-/** Official square brand mark used for favicon, OG, and Organization schema */
-const BRAND_LOGO = assets.logos.icon;
+/** Official share / favicon mark (lightweight) — not the UI design icon */
+const BRAND_SHARE_LOGO = assets.logos.share;
 
-/** Production site origin — override via NEXT_PUBLIC_SITE_URL in .env.local */
-export const DEFAULT_SITE_URL = "https://wmcpa-eg.com";
+/**
+ * Preferred canonical origin for SEO / Open Graph absolute URLs.
+ * Visitors can open both www.wmcpa-eg.com and wmcpa-eg.com; we still emit
+ * www in meta/sitemap/JSON-LD so crawlers fetch share images without a
+ * host redirect (WhatsApp/Google often drop og:image after a 308).
+ * Override with NEXT_PUBLIC_SITE_URL if needed.
+ */
+export const DEFAULT_SITE_URL = "https://www.wmcpa-eg.com";
 
 export function getSiteUrl(): string {
   const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.trim();
@@ -18,7 +24,7 @@ export function getSiteUrl(): string {
   return DEFAULT_SITE_URL;
 }
 
-/** Absolute URL for a site path (e.g. "/about" → "https://wmcpa-eg.com/about"). */
+/** Absolute URL for a site path (e.g. "/about" → "https://www.wmcpa-eg.com/about"). */
 export function absoluteUrl(path = "/"): string {
   const base = getSiteUrl();
   if (!path || path === "/") return `${base}/`;
@@ -102,12 +108,12 @@ Sitemap: ${sitemapUrl}
 
 /** Organization / LocalBusiness JSON-LD using the official firm name + brand icon. */
 export function buildOrganizationJsonLd(siteName: string) {
-  const logoUrl = absoluteAssetUrl(BRAND_LOGO);
+  const logoUrl = absoluteAssetUrl(BRAND_SHARE_LOGO);
   const logoImage = {
     "@type": "ImageObject",
     url: logoUrl,
-    width: 2500,
-    height: 2500,
+    width: 600,
+    height: 600,
     contentUrl: logoUrl,
   };
 
@@ -176,9 +182,9 @@ export function buildWebSiteJsonLd(siteName: string) {
       name: "Upper Hand Young | Waled Mounir & Mohamed Arafa",
       logo: {
         "@type": "ImageObject",
-        url: absoluteAssetUrl(BRAND_LOGO),
-        width: 2500,
-        height: 2500,
+        url: absoluteAssetUrl(BRAND_SHARE_LOGO),
+        width: 600,
+        height: 600,
       },
     },
     inLanguage: ["en", "ar"],

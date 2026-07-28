@@ -13,10 +13,15 @@ export const assets = {
     navbar: "/logopng-1.png",
     /** Footer brand mark */
     footer: "/logowhite-1.png",
-    /** Compact square icon (dark) */
+    /** Compact square icon (dark) — used in page UI / design only */
     icon: "/logo-icon-1.png",
-    /** Compact square icon (white, for dark backgrounds) */
+    /** Compact square icon (white, for dark backgrounds) — UI only */
     iconWhite: "/logo-icon-white-1.png",
+    /**
+     * Lightweight mark for favicon, Google Search, WhatsApp / social link previews.
+     * Do not use this in page design — keep `icon` / `iconWhite` for UI.
+     */
+    share: "/logo-icon-2.jpg",
   },
   images: {
     /** Branded background used behind the site footer */
