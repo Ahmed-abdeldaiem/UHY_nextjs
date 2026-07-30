@@ -229,7 +229,7 @@ export type TeamStrengthFeatureKey = (typeof teamStrength.features)[number]["key
 
 export const aboutImages = {
   hero: "/egypt.jpg",
-  story: "/T3.jpeg",
+  story: "/wm.jpeg",
   partnershipBackground: "/footer.jpg",
 } as const;
 
@@ -342,6 +342,7 @@ export const strategicPartnerLogos: StrategicPartnerLogo[] = [
   { id: "sp2", src: "/statigic-partners/sp2.png" },
   { id: "sp3", src: "/statigic-partners/sp3.png" },
   { id: "sp4", src: "/statigic-partners/sp4.png" },
+  { id: "sp5", src: "/statigic-partners/sp5.png" },
 ];
 
 // ---------------------------------------------------------------------------
